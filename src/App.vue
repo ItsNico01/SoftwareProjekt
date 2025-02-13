@@ -1,15 +1,13 @@
 <script setup>
   import {ref} from "vue";
-  import HelloWorld from "@/components/HelloWorld.vue";
-  import Desktop from "@/components/Desktop.vue";
-  import TodoList from "@/components/TodoList.vue";
+  import { RouterLink, RouterView } from 'vue-router'
+  import DesktopView from "./components/Desktop.vue";
 
   const msg = ref("Hallo");
 </script>
 
 <template>
-  <Desktop/>
-
+    <DesktopView />
 </template>
 
 <style scoped>

@@ -1,10 +1,16 @@
 <script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+  function goToLogin() {
+    router.push('/login');
+  }
 
 </script>
 
 <template>
   <div class="container">
-    <div class="gridItems" > myHshl</div>
+    <div @click="goToLogin" class="gridItems">myHshl</div>
     <div class="gridItems" > Badges</div>
   </div>
 </template>

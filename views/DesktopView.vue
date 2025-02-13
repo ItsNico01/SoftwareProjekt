@@ -1,31 +1,32 @@
 <script setup>
-import Avatar from "@/components/Avatar.vue";
-import LevelBar from "@/components/LevelBar.vue";
+
 import ButtonGrid from "@/components/ButtonGrid.vue";
+import Avatar from "@/components/Avatar.vue";
 import OffButton from "@/components/OffButton.vue";
 import TodoList from "@/components/TodoList.vue";
-import Desktop from "../../views/DesktopView.vue";
-import DesktopView from "./Desktop.vue";
+import LevelBar from "@/components/LevelBar.vue";
+import {useRouter} from "vue-router";
+import DesktopView from "@/components/Desktop.vue";
+import LoginView from "./LoginView.vue";
+
+const router = useRouter()
 
 </script>
 
 <template>
-  <div class="window">
-    <RouterView/>
-  </div>
-  <div class="standVertical"></div>
-  <div class="standHorizontal"></div>
-  <TodoList/>
-
+  <Avatar/>
+  <LevelBar/>
+  <ButtonGrid/>
+  <OffButton/>
 </template>
 
 <style scoped>
 .window {
-    width: 90%;
-    height: 40vw;
-    border: 1vw solid black;
-    margin-top: 2vw;
-    margin-inline: auto;
+  width: 90%;
+  height: 40vw;
+  border: 1vw solid black;
+  margin-top: 2vw;
+  margin-inline: auto;
 }
 .standVertical {
   width: 5%;
@@ -38,7 +39,5 @@ import DesktopView from "./Desktop.vue";
   width: 90%;
   border-top: 1vw solid black;
   margin-inline: auto;
-
 }
-
 </style>
