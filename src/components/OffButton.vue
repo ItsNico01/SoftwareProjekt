@@ -10,8 +10,7 @@
 .offButton {
   width: 2vw;
   height: 2vw;
-  margin-inline: 95%;
-  margin-top: 10vw;
+  margin: 1vw;
   background-color: aqua;
 }
 

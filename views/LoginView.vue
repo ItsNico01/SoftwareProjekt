@@ -1,9 +1,21 @@
 <script setup>
 
+import Logo from "@/components/icons/logo.vue";
+import LoginForm from "@/components/LoginForm.vue";
+import SingleButton from "@/components/SingleButton.vue";
+import {useRoute, useRouter} from "vue-router";
+import {computed} from "vue";
+
+const route = useRoute();
+const style = "backButton";
+
+
 </script>
 
 <template>
-<h1>Hello from Login</h1>
+  <SingleButton :path="route.path" :css="style"/>
+  <Logo/>
+  <LoginForm/>
 
 </template>
 

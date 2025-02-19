@@ -5,11 +5,14 @@ import Avatar from "@/components/Avatar.vue";
 import OffButton from "@/components/OffButton.vue";
 import TodoList from "@/components/TodoList.vue";
 import LevelBar from "@/components/LevelBar.vue";
-import {useRouter} from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 import DesktopView from "@/components/Desktop.vue";
 import LoginView from "./LoginView.vue";
+import SingleButton from "@/components/SingleButton.vue";
+import {reactive} from "vue";
 
-const router = useRouter()
+const route = useRoute();
+const style = "offButton";
 
 </script>
 
@@ -17,7 +20,7 @@ const router = useRouter()
   <Avatar/>
   <LevelBar/>
   <ButtonGrid/>
-  <OffButton/>
+  <SingleButton :path="route.path" :css="style"/>
 </template>
 
 <style scoped>

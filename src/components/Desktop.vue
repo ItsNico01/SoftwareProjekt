@@ -1,11 +1,5 @@
 <script setup>
-import Avatar from "@/components/Avatar.vue";
-import LevelBar from "@/components/LevelBar.vue";
-import ButtonGrid from "@/components/ButtonGrid.vue";
-import OffButton from "@/components/OffButton.vue";
 import TodoList from "@/components/TodoList.vue";
-import Desktop from "../../views/DesktopView.vue";
-import DesktopView from "./Desktop.vue";
 
 </script>
 
