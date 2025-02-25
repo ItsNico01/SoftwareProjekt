@@ -11,7 +11,8 @@ const router = useRouter()
 <template>
   <div class="container">
     <div @click="goToLogin" class="gridItems">myHshl</div>
-    <div class="gridItems" > Badges</div>
+    <div class="gridItems" >Badges</div>
+    <div class="gridItems">Einstellungen</div>
   </div>
 </template>
 
