@@ -2,11 +2,13 @@
 
 import WelcomeHeader from "@/components/WelcomeHeader.vue";
 import RegisterForm from "@/components/RegisterForm.vue";
+import Avatar from "@/components/Avatar.vue";
 </script>
 
 <template>
   <div class="container">
     <WelcomeHeader/>
+    <Avatar :css="'welcomeView'"/>
     <RegisterForm/>
   </div>
 
@@ -15,7 +17,7 @@ import RegisterForm from "@/components/RegisterForm.vue";
 <style scoped>
 .container {
   width: 50vw;
-  height: 98vh;
+  height: 86vh;
   border-radius: 2vw;
   margin-inline: auto;
   margin-top: 1vh;

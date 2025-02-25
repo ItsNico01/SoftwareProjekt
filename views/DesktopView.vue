@@ -17,7 +17,7 @@ const style = "offButton";
 </script>
 
 <template>
-  <Avatar/>
+  <Avatar :css="'desktopView'"/>
   <LevelBar/>
   <ButtonGrid/>
   <SingleButton :path="route.path" :css="style"/>

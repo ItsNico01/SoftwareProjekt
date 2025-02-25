@@ -5,23 +5,22 @@
 <template>
   <form>
     <fieldset>
-      <legend>Angaben zu deiner Person: </legend><br>
+      <legend>Name und Studiengang: </legend><br>
         <input type="text" placeholder="Vorname" required><br>
-        <input type="text" placeholder="Studiengang" required><br>
+
+      <select id="major" name="major">
+        <option value="AIS">AIS</option>
+        <option value="CVD">CVD</option>
+      </select>
     </fieldset>
 
     <fieldset>
-      <legend>Wähle die Schwierigkeit:</legend>
+      <legend>Wähle die Schwierigkeit:</legend><br>
 
-      <div>
-        <input type="radio" id="normal" name="difficulty" value="normal" checked />
-        <label for="normal">Normal</label>
-      </div>
-
-      <div>
-        <input type="radio" id="hard" name="difficulty" value="hard" />
-        <label for="hard">Schwer</label>
-      </div>
+      <select id="difficulty" name="difficulty">
+        <option value="normal">Normal</option>
+        <option value="hard">Schwer</option>
+      </select>
     </fieldset>
 
     <button type="submit">Starten</button>
@@ -40,9 +39,10 @@ form {
 }
 
 fieldset {
-  margin: 0;
+  margin: 1vw;
   padding: 0;
   border: 2px solid #808080;
+  width: 10vw;
 }
 
 legend {;
@@ -53,12 +53,16 @@ legend {;
   border-bottom-right-radius: 1vw;
 }
 
-
-
-
-
 input {
   margin: 0.2vw;
+}
+
+select {
+  margin: 0.2vw;
+}
+
+button {
+  width: 10vw;
 }
 
 </style>
