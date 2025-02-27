@@ -21,7 +21,7 @@ function toggleAvatarBox() {
   </div>
   <!-- Wenn avatarBoxVisible true -> Komponente wird angezeigt-->
   <Transition>
-    <AvatarSelection v-if="avatarBoxVisible" />
+    <AvatarSelection v-if="avatarBoxVisible" @avatarClicked="toggleAvatarBox" />
   </Transition>
 
 </template>

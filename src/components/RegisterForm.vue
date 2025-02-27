@@ -1,12 +1,19 @@
 <script setup>
+import {ref} from "vue";
+import {User} from "@/user/user.js"
+const RegisterFormFirstName = ref("");
+//RegisterFormFirstName in WelcomeHeader (Parent) erreichbar machen.
+defineExpose({RegisterFormFirstName});
 
+/*const user = new User();
+user.setFirstName = RegisterFormFirstName;*/
 </script>
 
 <template>
   <form>
     <fieldset>
       <legend>Name und Studiengang: </legend><br>
-        <input type="text" placeholder="Vorname" required><br>
+        <input v-model="RegisterFormFirstName" type="text" placeholder="Vorname" required><br>
 
       <select id="major" name="major">
         <option value="AIS">AIS</option>
@@ -26,6 +33,7 @@
     <button type="submit">Starten</button>
   </form>
 
+<!--  <p>{{user.getFirstName}}</p>-->
 
 
 </template>
@@ -47,7 +55,6 @@ fieldset {
 
 legend {;
   float: left;
-
   background-color: #808080;
   padding: 0.2vw 1.5vw;
   border-bottom-right-radius: 1vw;

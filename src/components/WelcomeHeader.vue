@@ -1,5 +1,9 @@
 <script setup>
+import {ref} from "vue";
 
+const props = defineProps({
+  name: ref
+})
 </script>
 
 <template>
@@ -7,7 +11,7 @@
     <h1>Willkommen beim HSHL-Trainer!</h1>
   </div>
   <div>
-    <p class="welcomeText">Hallo xy, wir freuen uns, dich als neue(n) Student/in bei uns begrüßen zu können! <br>
+    <p class="welcomeText">Hallo {{ props.name }}, wir freuen uns, dich als neue(n) Student/in bei uns begrüßen zu können! <br>
       Mit Hilfe des HSHL-Trainers werden dir wichtige Abläufe beigebracht, welche dir den Start ins Studium erleichtern.<br><br>
       Bitte melde dich zunächst an.
     </p>

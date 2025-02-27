@@ -9,6 +9,8 @@
 <template>
 
   <!-- <DesktopView/>-->
+  <!--<router-view />-->
+
   <WelcomeView/>
 
 </template>

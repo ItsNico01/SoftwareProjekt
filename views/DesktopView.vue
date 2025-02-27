@@ -2,7 +2,6 @@
 
 import ButtonGrid from "@/components/ButtonGrid.vue";
 import Avatar from "@/components/Avatar.vue";
-import OffButton from "@/components/OffButton.vue";
 import TodoList from "@/components/TodoList.vue";
 import LevelBar from "@/components/LevelBar.vue";
 import {useRoute, useRouter} from "vue-router";

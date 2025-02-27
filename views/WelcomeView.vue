@@ -1,16 +1,22 @@
 <script setup>
-
 import WelcomeHeader from "@/components/WelcomeHeader.vue";
 import RegisterForm from "@/components/RegisterForm.vue";
 import Avatar from "@/components/Avatar.vue";
+import {ref} from "vue";
+
+//Eingegebener Name aus dem WelcomeHeader.
+const childRefRegisterFormFirstName = ref("");
+
 </script>
 
 <template>
   <div class="container">
-    <WelcomeHeader/>
+    <WelcomeHeader :name="childRefRegisterFormFirstName.RegisterFormFirstName"/>
     <Avatar :css="'welcomeView'"/>
-    <RegisterForm/>
+    <RegisterForm ref="childRefRegisterFormFirstName"/>
   </div>
+
+<p>{{childRefRegisterFormFirstName}}</p>
 
 </template>
 
@@ -22,7 +28,6 @@ import Avatar from "@/components/Avatar.vue";
   margin-inline: auto;
   margin-top: 1vh;
   background-color: #cdcdcd;
-
   padding: 3vw;
 }
 

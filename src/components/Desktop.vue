@@ -1,11 +1,16 @@
 <script setup>
 import TodoList from "@/components/TodoList.vue";
+import DesktopView from "../../views/DesktopView.vue";
+import {useRoute} from "vue-router";
+import LoginView from "../../views/LoginView.vue";
+const route = useRoute();
 
 </script>
 
 <template>
   <div class="window">
-    <RouterView/>
+    <router-view />
+
   </div>
   <div class="standVertical"></div>
   <div class="standHorizontal"></div>
