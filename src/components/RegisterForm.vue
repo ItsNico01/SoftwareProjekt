@@ -1,39 +1,50 @@
 <script setup>
-import {ref} from "vue";
-import {User} from "@/user/user.js"
+import {provide, ref} from "vue";
+
+//RegisterForm Eingaben
 const RegisterFormFirstName = ref("");
+const RegisterFormMajor = ref("");
+const RegisterFormDifficulty = ref("");
+
+
 //RegisterFormFirstName in WelcomeHeader (Parent) erreichbar machen.
 defineExpose({RegisterFormFirstName});
 
-/*const user = new User();
-user.setFirstName = RegisterFormFirstName;*/
+function hello() {
+  alert(`Name: ${RegisterFormFirstName.value},
+        Major: ${RegisterFormMajor.value},
+        Difficulty: ${RegisterFormDifficulty.value}`);
+}
+
 </script>
 
 <template>
-  <form>
+  <form @submit="hello">
     <fieldset>
       <legend>Name und Studiengang: </legend><br>
         <input v-model="RegisterFormFirstName" type="text" placeholder="Vorname" required><br>
 
-      <select id="major" name="major">
-        <option value="AIS">AIS</option>
-        <option value="CVD">CVD</option>
+      <select v-model="RegisterFormMajor" id="major" name="major" required>
+        <option disabled value="">Wähle deinen Studiengang</option>
+        <option :value="'ais'">AIS</option>
+        <option :value="'cvd'">CVD</option>
       </select>
     </fieldset>
 
     <fieldset>
       <legend>Wähle die Schwierigkeit:</legend><br>
 
-      <select id="difficulty" name="difficulty">
-        <option value="normal">Normal</option>
-        <option value="hard">Schwer</option>
+      <select v-model="RegisterFormDifficulty" id="difficulty" name="difficulty" required>
+        <option disabled value="">Schwierigkeit</option>
+        <option :value="'normal'">Normal</option>
+        <option :value="'hard'">Schwer</option>
       </select>
     </fieldset>
 
-    <button type="submit">Starten</button>
+    <button type="submit" >Starten</button>
   </form>
 
-<!--  <p>{{user.getFirstName}}</p>-->
+
 
 
 </template>

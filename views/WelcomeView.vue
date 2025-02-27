@@ -1,4 +1,5 @@
 <script setup>
+import {User} from "@/user/user.js";
 import WelcomeHeader from "@/components/WelcomeHeader.vue";
 import RegisterForm from "@/components/RegisterForm.vue";
 import Avatar from "@/components/Avatar.vue";
@@ -7,16 +8,24 @@ import {ref} from "vue";
 //Eingegebener Name aus dem WelcomeHeader.
 const childRefRegisterFormFirstName = ref("");
 
+//Lege leeren User an.
+const user = new User();
+user.setFirstName = childRefRegisterFormFirstName;
+
+
+
 </script>
 
 <template>
   <div class="container">
     <WelcomeHeader :name="childRefRegisterFormFirstName.RegisterFormFirstName"/>
     <Avatar :css="'welcomeView'"/>
-    <RegisterForm ref="childRefRegisterFormFirstName"/>
+    <!-- @: Erstelle User-->
+    <RegisterForm  ref="childRefRegisterFormFirstName" />
   </div>
 
-<p>{{childRefRegisterFormFirstName}}</p>
+<p>{{user.setFirstName = childRefRegisterFormFirstName.RegisterFormFirstName}}</p>
+
 
 </template>
 
