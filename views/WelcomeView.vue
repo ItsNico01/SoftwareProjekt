@@ -6,26 +6,19 @@ import Avatar from "@/components/Avatar.vue";
 import {ref} from "vue";
 
 //Eingegebener Name aus dem WelcomeHeader.
-const childRefRegisterFormFirstName = ref("");
-
-//Lege leeren User an.
-const user = new User();
-user.setFirstName = childRefRegisterFormFirstName;
-
+const refRegisterForm = ref("");
 
 
 </script>
 
 <template>
   <div class="container">
-    <WelcomeHeader :name="childRefRegisterFormFirstName.RegisterFormFirstName"/>
+    <!-- Name wird an den Header weitergegeben-->
+    <WelcomeHeader :name="refRegisterForm.RegisterFormFirstName"/>
     <Avatar :css="'welcomeView'"/>
-    <!-- @: Erstelle User-->
-    <RegisterForm  ref="childRefRegisterFormFirstName" />
+
+    <RegisterForm  ref="refRegisterForm" />
   </div>
-
-<p>{{user.setFirstName = childRefRegisterFormFirstName.RegisterFormFirstName}}</p>
-
 
 </template>
 

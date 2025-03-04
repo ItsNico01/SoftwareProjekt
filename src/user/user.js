@@ -3,7 +3,7 @@ export class User {
     #firstName=ref("");
     #major = "";
     #difficulty = "";
-    #avatar;
+    //#avatar;
     constructor() {
 
     }
@@ -16,8 +16,28 @@ export class User {
         this.#firstName = firstName;
     }
 
-    printName(){
-        console.log(this.#firstName.value);
+    get getMajor() {
+        return this.#major;
+    }
+
+    set setMajor(major) {
+        this.#major = major;
+    }
+
+    get getDifficulty() {
+        return this.#difficulty;
+    }
+
+    set setDifficulty(difficulty) {
+        this.#difficulty = difficulty;
+    }
+
+    toJSON() {
+        return {
+            firstName: this.#firstName,
+            major: this.#major,
+            difficulty: this.#difficulty
+        };
     }
 
 }

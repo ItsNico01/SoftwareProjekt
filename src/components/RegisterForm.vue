@@ -1,5 +1,7 @@
 <script setup>
 import {provide, ref} from "vue";
+import {user,createUser} from "@/user/createUser.js"
+import router from "../../router/router.js";
 
 //RegisterForm Eingaben
 const RegisterFormFirstName = ref("");
@@ -10,19 +12,21 @@ const RegisterFormDifficulty = ref("");
 //RegisterFormFirstName in WelcomeHeader (Parent) erreichbar machen.
 defineExpose({RegisterFormFirstName});
 
-function hello() {
-  alert(`Name: ${RegisterFormFirstName.value},
-        Major: ${RegisterFormMajor.value},
-        Difficulty: ${RegisterFormDifficulty.value}`);
+/*Wird verwendet, damit die route erste geändert wird, wenn der User erstellt wurde.
+  Fügt man createUser; router.push('/home') direkt in @submit.prevent ein, wird der User
+  nicht richtig erstellt.*/
+function handleCreateUser() {
+  createUser();
+  router.push('/home');
 }
 
 </script>
 
 <template>
-  <form @submit="hello">
+  <form @submit.prevent="handleCreateUser"  method="POST">
     <fieldset>
       <legend>Name und Studiengang: </legend><br>
-        <input v-model="RegisterFormFirstName" type="text" placeholder="Vorname" required><br>
+        <input v-model="RegisterFormFirstName" type="text" id="firstName" placeholder="Vorname" required><br>
 
       <select v-model="RegisterFormMajor" id="major" name="major" required>
         <option disabled value="">Wähle deinen Studiengang</option>

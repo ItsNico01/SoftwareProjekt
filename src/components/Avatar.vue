@@ -27,7 +27,7 @@ function toggleAvatarBox() {
 </template>
 
 <style scoped>
-.desktopView {
+.home {
   width: 10vw;
   height: 10vw;
   border: 1vw solid black;
