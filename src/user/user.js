@@ -3,7 +3,7 @@ export class User {
     #firstName=ref("");
     #major = "";
     #difficulty = "";
-    //#avatar;
+    #avatar;
     constructor() {
 
     }
@@ -32,6 +32,15 @@ export class User {
         this.#difficulty = difficulty;
     }
 
+    get getAvatar() {
+        return this.#avatar;
+    }
+
+    set setAvatar(avatar) {
+        this.#avatar = avatar;
+    }
+
+    //zum Speichern im localStorage
     toJSON() {
         return {
             firstName: this.#firstName,

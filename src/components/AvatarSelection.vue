@@ -1,16 +1,29 @@
 <script setup>
+import {user} from "@/user/createUser.js"
+import {computed, ref} from "vue";
+
+const images = ref(
+    [
+      {alt: "avatar1", src: new URL(`../assets/anonymous_avatars_1.jpg`, import.meta.url).href},
+      {alt: "avatar2", src: new URL(`../assets/anonymous_avatars_2.jpg`, import.meta.url).href},
+      {alt: "avatar3", src: new URL(`../assets/anonymous_avatars_3.jpg`, import.meta.url).href},
+      {alt: "avatar4", src: new URL(`../assets/anonymous_avatars_4.jpg`, import.meta.url).href},
+    ]
+)
+
 
 </script>
 
 <template>
   <div class="openbox">
-    <div class="content" @click="$emit('avatarClicked')">
-      <img alt="avatar1"  src="../assets/anonymous_avatars_1.jpg">
-      <img alt="avatar2"  src="../assets/anonymous_avatars_2.jpg">
-      <img alt="avatar3"  src="../assets/anonymous_avatars_3.jpg">
-      <img alt="avatar4"  src="../assets/anonymous_avatars_4.jpg">
+    <div class="content" >
+      <!--Avatare durchlaufen -->
+      <div v-for="avatar in images" :key="avatar.src">
+        <img :src="avatar.src" :alt="avatar.alt" @click="$emit('avatarClicked', avatar.src)">
+      </div>
     </div>
   </div>
+
 </template>
 
 <style scoped>

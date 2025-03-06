@@ -1,50 +1,64 @@
 <script setup>
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import AvatarSelection from "@/components/AvatarSelection.vue";
+import {user} from "@/user/createUser.js";
 
 const props = defineProps({
   css: String
 })
 
-let avatarBoxVisible = ref(false);
+const avatarBoxVisible = ref(false);
+let avatar = ref("")
+
 
 //Avatarbox anzeigen oder verstecken
 function toggleAvatarBox() {
   avatarBoxVisible.value = !avatarBoxVisible.value;
-  console.log(avatarBoxVisible.value)
 }
+
+
+
+function handleAvatarChange(selected) {
+  toggleAvatarBox()
+  avatar.value = selected;
+  user.setAvatar = selected
+  console.log(user);
+}
+
+
 </script>
 
 <template>
-  <div :class="props.css" @click="toggleAvatarBox">
+
+  <img :src="avatar" :class="props.css" @click="toggleAvatarBox">
     <p class="hide">Bearbeiten</p>
-  </div>
-  <!-- Wenn avatarBoxVisible true -> Komponente wird angezeigt-->
+  <!-- Wenn avatarBoxVisible true, wird die Komponente angezeigt-->
   <Transition>
-    <AvatarSelection v-if="avatarBoxVisible" @avatarClicked="toggleAvatarBox" />
+    <AvatarSelection v-if="avatarBoxVisible" @avatarClicked="handleAvatarChange($event)" />
   </Transition>
 
 </template>
 
 <style scoped>
 .home {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 10vw;
   height: 10vw;
   border: 1vw solid black;
   border-radius: 50%;
-  background-color: aqua;
-  margin-inline: auto;
   margin-top: 2vw;
 }
 .welcomeView {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 8vw;
   height: 8vw;
   border: 0.1vw solid black;
   border-radius: 50%;
   background-color: aqua;
-  margin-inline: auto;
-  margin-top: 2vw;
-  margin-bottom: 1vw;
 
 }
 .hide {

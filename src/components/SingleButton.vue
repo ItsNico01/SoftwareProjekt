@@ -29,11 +29,12 @@ function changePage(){
 <style scoped>
 
 .offButton {
-  width: 2vw;
-  height: 2vw;
+  min-width: 2vw;
+  min-height: 2vw;
   margin-inline: 95%;
-  margin-top: 10vw;
+  margin-top: 8vw;
   background-color: aqua;
+  overflow: hidden
 }
 
 .backButton {
