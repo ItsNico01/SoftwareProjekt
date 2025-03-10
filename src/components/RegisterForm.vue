@@ -1,8 +1,11 @@
 <script setup>
 import {provide, ref} from "vue";
-import {user,createUser} from "@/user/createUser.js"
+import {createUser} from "@/user/userStore.js"
 import router from "../../router/router.js";
 
+const props = defineProps( {
+  avatarSrc: String
+})
 //RegisterForm Eingaben
 const RegisterFormFirstName = ref("");
 const RegisterFormMajor = ref("");
@@ -13,12 +16,13 @@ const RegisterFormDifficulty = ref("");
 defineExpose({RegisterFormFirstName});
 
 /*Wird verwendet, damit die route erste geändert wird, wenn der User erstellt wurde.
-  Fügt man createUser; router.push('/home') direkt in @submit.prevent ein, wird der User
+  Fügt man userStore; router.push('/home') direkt in @submit.prevent ein, wird der User
   nicht richtig erstellt.*/
 function handleCreateUser() {
-  createUser();
+  createUser(props.avatarSrc);
   router.push('/home');
 }
+
 
 </script>
 

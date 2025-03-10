@@ -1,7 +1,7 @@
 <script setup>
 import {computed, onMounted, ref} from "vue";
 import AvatarSelection from "@/components/AvatarSelection.vue";
-import {user} from "@/user/createUser.js";
+import {updateAvatar, user} from "@/user/userStore.js";
 
 //css: css-Klasse
 //src: Src des Avatar-Bildes.
@@ -13,8 +13,12 @@ const props = defineProps({
   },
 })
 
+
+
 const avatarBoxVisible = ref(false);
 let avatar = ref("")
+
+defineExpose({avatar});
 
 //Wird beim mounten aufgerufen.
 //So wird der aktuelle Avatar benutzt.
@@ -32,7 +36,8 @@ function toggleAvatarBox() {
 function handleAvatarChange(selected) {
   toggleAvatarBox()
   avatar.value = selected;
-  user.setAvatar = selected
+  updateAvatar(selected);
+
 }
 
 onMounted(() => {
@@ -43,7 +48,7 @@ onMounted(() => {
 
 <template>
 
-  <img  :src="avatar" :class="props.css" @click="handleAvatarChange($event)">
+  <img  :src="avatar" :class="props.css" @click="toggleAvatarBox">
     <p class="hide">Bearbeiten</p>
   <!-- Wenn avatarBoxVisible true, wird die Komponente angezeigt-->
   <Transition>

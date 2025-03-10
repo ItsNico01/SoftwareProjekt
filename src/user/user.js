@@ -45,8 +45,11 @@ export class User {
         return {
             firstName: this.#firstName,
             major: this.#major,
-            difficulty: this.#difficulty
+            difficulty: this.#difficulty,
+            avatar: this.#avatar
         };
     }
 
+
 }
+

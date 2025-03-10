@@ -1,5 +1,4 @@
 <script setup>
-import {User} from "@/user/user.js";
 import WelcomeHeader from "@/components/WelcomeHeader.vue";
 import RegisterForm from "@/components/RegisterForm.vue";
 import Avatar from "@/components/Avatar.vue";
@@ -8,6 +7,7 @@ import {ref} from "vue";
 //Eingegebener Name aus dem WelcomeHeader.
 const refRegisterForm = ref("");
 
+const refAvatar = ref("");
 
 
 
@@ -17,9 +17,8 @@ const refRegisterForm = ref("");
   <div class="container">
     <!-- Name wird an den Header weitergegeben-->
     <WelcomeHeader :name="refRegisterForm.RegisterFormFirstName"/>
-    <Avatar :css="'welcomeView'" />
-
-    <RegisterForm  ref="refRegisterForm" />
+    <Avatar :css="'welcomeView'" ref="refAvatar"/>
+    <RegisterForm :avatarSrc="refAvatar.avatar"  ref="refRegisterForm" />
   </div>
 
 </template>
