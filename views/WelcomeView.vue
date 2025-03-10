@@ -9,13 +9,15 @@ import {ref} from "vue";
 const refRegisterForm = ref("");
 
 
+
+
 </script>
 
 <template>
   <div class="container">
     <!-- Name wird an den Header weitergegeben-->
     <WelcomeHeader :name="refRegisterForm.RegisterFormFirstName"/>
-    <Avatar :css="'welcomeView'"/>
+    <Avatar :css="'welcomeView'" />
 
     <RegisterForm  ref="refRegisterForm" />
   </div>

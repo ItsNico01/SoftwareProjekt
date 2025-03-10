@@ -1,36 +1,49 @@
 <script setup>
-import {computed, ref} from "vue";
+import {computed, onMounted, ref} from "vue";
 import AvatarSelection from "@/components/AvatarSelection.vue";
 import {user} from "@/user/createUser.js";
 
+//css: css-Klasse
+//src: Src des Avatar-Bildes.
 const props = defineProps({
-  css: String
+  css: String,
+  src: {
+    type: String,
+    default: "",
+  },
 })
 
 const avatarBoxVisible = ref(false);
 let avatar = ref("")
 
+//Wird beim mounten aufgerufen.
+//So wird der aktuelle Avatar benutzt.
+function setUp() {
+  avatar.value = props.src;
+}
 
 //Avatarbox anzeigen oder verstecken
 function toggleAvatarBox() {
   avatarBoxVisible.value = !avatarBoxVisible.value;
 }
 
-
-
+//Im Event ausgewählter Avatar wird als aktueller Avatar gesetzt.
+//Für globalen user und lokalen avatar.
 function handleAvatarChange(selected) {
   toggleAvatarBox()
   avatar.value = selected;
   user.setAvatar = selected
-  console.log(user);
 }
 
+onMounted(() => {
+  setUp();
+})
 
 </script>
 
 <template>
 
-  <img :src="avatar" :class="props.css" @click="toggleAvatarBox">
+  <img  :src="avatar" :class="props.css" @click="handleAvatarChange($event)">
     <p class="hide">Bearbeiten</p>
   <!-- Wenn avatarBoxVisible true, wird die Komponente angezeigt-->
   <Transition>

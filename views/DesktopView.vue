@@ -8,7 +8,7 @@ import {useRoute, useRouter} from "vue-router";
 import LoginView from "./LoginView.vue";
 import SingleButton from "@/components/SingleButton.vue";
 import {onMounted, reactive, ref} from "vue";
-import {user} from "../src/user/createUser.js";
+import {user} from "@/user/createUser.js";
 
 const route = useRoute();
 const style = "offButton";
@@ -34,7 +34,7 @@ onMounted(() => {
 
 <template>
   <div class="window">
-    <Avatar :css="'home'"/>
+    <Avatar :css="'home'" :src="user.getAvatar"/>
     <h1>{{user.getFirstName}}</h1>
     <LevelBar/>
     <ButtonGrid/>
