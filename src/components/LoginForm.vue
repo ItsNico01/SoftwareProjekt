@@ -1,20 +1,19 @@
 <script setup>
 
+import {user} from "../user/userStore.js";
 </script>
 
 <template>
-  <form class="loginForm" >
+  <form @submit.prevent="" class="loginForm">
     <div class="name">
       <label for="username">Username: </label>
-      <input id="username" type="text" />
+      <input v-model="user.getFirstName" id="username" type="text"  disabled/>
     </div>
     <div class="password">
       <label for="password">Password: </label>
-      <input id="password" type="password" />
+      <input id="password" type="password" value="*****" disabled/>
     </div>
-    <button type="submit">
-      Login
-    </button>
+    <button type="submit">Login</button>
   </form>
 </template>
 
