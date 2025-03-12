@@ -3,9 +3,10 @@ import {createRouter, createWebHistory} from 'vue-router'
 
 const routes = [
     { path: '/', component: () => import('../views/WelcomeView.vue') },
-    {path: '/home', component: () => import('../views/DesktopView.vue') },
+    { path: '/home', component: () => import('../views/DesktopView.vue') },
     { path: '/login', component: () => import('../views/LoginView.vue') },
-    {path: '/:pathMatch(.*)*', redirect: '/' },
+    { path: '/myHSHL', component: () => import('../views/MyHSHLView.vue') },
+    { path: '/:pathMatch(.*)*', redirect: '/' },
 ]
 
 const router = createRouter({

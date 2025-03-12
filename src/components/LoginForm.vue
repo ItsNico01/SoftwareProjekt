@@ -1,10 +1,13 @@
 <script setup>
 
 import {user} from "../user/userStore.js";
+import router from "../../router/router.js";
+
+
 </script>
 
 <template>
-  <form @submit.prevent="" class="loginForm">
+  <form @submit.prevent="router.push('/myHSHL')" class="loginForm">
     <div class="name">
       <label for="username">Username: </label>
       <input v-model="user.getFirstName" id="username" type="text"  disabled/>

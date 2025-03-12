@@ -13,6 +13,11 @@ const style = "offButton";
 //User aus dem LocalStorage holen
 loadUser();
 
+const buttonGridItems = [
+    {name: "myHSHL", route: "/myHSHL", style:"home"},
+    {name: "Badges", route: "", style:"home"},
+    {name: "Einstellungen", route: "", style:"home"},
+]
 
 
 </script>
@@ -22,7 +27,7 @@ loadUser();
     <h1>{{user.getFirstName}}</h1>
 
     <LevelBar/>
-    <ButtonGrid/>
+    <ButtonGrid :button-items="buttonGridItems" />
     <SingleButton :path="route.path" :css="style"/>
 
 
