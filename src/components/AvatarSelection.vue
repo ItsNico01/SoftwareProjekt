@@ -1,5 +1,5 @@
 <script setup>
-import {user} from "@/user/userStore.js"
+//import {user} from "@/user/userStore.js"
 import {computed, ref} from "vue";
 
 const images = ref(

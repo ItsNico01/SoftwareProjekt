@@ -1,8 +1,10 @@
 <script setup>
 
-import {user} from "../user/userStore.js";
 import router from "../../router/router.js";
+import {userStore} from "@/user/userStore.js";
 
+//Hole aktuellen User.
+const user = userStore.getUser();
 
 </script>
 

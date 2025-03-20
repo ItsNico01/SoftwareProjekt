@@ -1,7 +1,9 @@
 <script setup>
-import {provide, ref} from "vue";
-import {createUser} from "@/user/userStore.js"
+import {computed, provide, ref} from "vue";
+import { userStore } from "@/user/userStore.js";
 import router from "../../router/router.js";
+
+
 
 const props = defineProps( {
   avatarSrc: String
@@ -19,15 +21,20 @@ defineExpose({RegisterFormFirstName});
   Fügt man userStore; router.push('/home') direkt in @submit.prevent ein, wird der User
   nicht richtig erstellt.*/
 function handleCreateUser() {
-  createUser(props.avatarSrc);
+  userStore.createUser(props.avatarSrc);
   router.push('/home');
+
 }
+
+
+
+
 
 
 </script>
 
 <template>
-  <form @submit.prevent="handleCreateUser"  method="POST">
+  <form @submit.prevent="handleCreateUser(props.avatarSrc)"  method="POST">
     <fieldset>
       <legend>Name und Studiengang: </legend><br>
         <input v-model="RegisterFormFirstName" type="text" id="firstName" placeholder="Vorname" required><br>

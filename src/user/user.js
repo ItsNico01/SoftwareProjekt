@@ -3,7 +3,7 @@ export class User {
     #firstName=ref("");
     #major = "";
     #difficulty = "";
-    #avatar;
+    #avatar = "";
     constructor() {
 
     }

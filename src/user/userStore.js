@@ -1,37 +1,52 @@
-import {User} from "@/user/user.js";
+import { User } from "@/user/user.js";
 
-//Der User, der im gesamten Programm genutzt wird.
-export const user =  new User();
+export class UserStore {
+    constructor() {
+        this.user = new User();
+        this.loadUser();
+    }
 
-//Userdaten aus der RegisterForm.vue werden entgegengenommen und im localStorage gespeichert.
-export function createUser(avatar){
-    user.setFirstName = document.getElementById("firstName").value;
-    user.setMajor = document.getElementById("major").value;
-    user.setDifficulty = document.getElementById("difficulty").value;
-    user.setAvatar = avatar;
+    //Userdaten aus der RegisterForm.vue werden entgegengenommen und im localStorage gespeichert.
+    createUser(avatar) {
+        this.user.setFirstName = document.getElementById("firstName").value;
+        this.user.setMajor = document.getElementById("major").value;
+        this.user.setDifficulty = document.getElementById("difficulty").value;
+        this.user.setAvatar = avatar;
+        this.saveUser();
+        console.log(this.user);
+    }
 
-    localStorage.setItem("user", JSON.stringify(user));
-    console.log(user);
+    //User im localStorage speichern.
+    saveUser() {
+        localStorage.setItem("user", JSON.stringify(this.user));
+    }
+
+    // LocalStorage-Daten herausholen und dem User zuweisen.
+    loadUser() {
+        const userData = JSON.parse(localStorage.getItem('user'));
+        if (userData) {
+            this.user.setFirstName = userData["firstName"];
+            this.user.setMajor = userData["major"];
+            this.user.setDifficulty = userData["difficulty"];
+            this.user.setAvatar = userData["avatar"];
+
+            console.log(this.user);
+        }
+    }
+
+    //Den geänderten Avatar als neuen Avatar setzen und den User im localStorage speichern.
+    //Nun kann der Avatar in der DesktopView persistent geändert werden.
+    updateAvatar(location) {
+        this.user.setAvatar = location;
+        this.saveUser();
+    }
+
+    //Gebe aktuellen User zurück.
+    getUser() {
+        return this.user;
+    }
 }
-// LocalStorage-Daten herausholen und dem User zuweisen.
-export function loadUser() {
-    const userData = JSON.parse(localStorage.getItem('user'));
+//Der userStore, der im gesamten Programm genutzt wird.
+export const userStore = new UserStore();
 
-    user.setFirstName = userData["firstName"];
-    user.setMajor = userData["major"];
-    user.setDifficulty = userData["difficulty"];
-    user.setAvatar = userData["avatar"];
-
-    console.log(user);
-
-
-}
-//Den geänderten Avatar als neuen Avatar setzen und den User im localStorage speichern.
-//Nun kann der Avatar in der DesktopView persistent geändert werden.
-export function updateAvatar(location) {
-    user.setAvatar = location;
-    localStorage.setItem("user", JSON.stringify(user));
-    console.log(user);
-
-}
 
