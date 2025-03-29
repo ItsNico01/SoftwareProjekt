@@ -1,48 +1,52 @@
 <script setup>
-  function open(){
-    document.getElementById("dropdownContent").classList.toggle("show")
-  }
+
+const listItems = [
+  { type: 'subheader', title: 'Studiengang' },
+  {
+    title: 'Fachschaft',
+    value: 1,
+  },
+  {
+    title: 'Sommersemester 2025',
+    value: 2,
+  },
+  { type: 'divider' },
+  { type: 'subheader', title: 'Hochschulweite Kurse' },
+  {
+    title: 'Stundenplanung',
+    value: 4,
+  },
+  {
+    title: 'Prüfungsplanung',
+    value: 5,
+  },
+]
+
 
 
 </script>
 
 <template>
-  <div class="dropdown">
-    <p @click="open" class="dropdownHeading">Studiengang</p>
-    <div id= "dropdownContent" class="dropdownContent">
-      <a href="#">Link 1</a> <br>
-      <a href="#">Link 2</a> <br>
-      <a href="#">Link 3</a> <br>
-    </div>
-  </div>
+  <v-col
+      class=" ml-auto"
+      xs="3"
+      sm="3"
+      md="3"
+      lg="5"
+      xl="5"
+      xxl="2">
+    <v-card
+
+        max-width="300"
+
+    >
+      <v-list :items="listItems"></v-list>
+    </v-card>
+  </v-col>
 
 </template>
 
 <style scoped>
-.dropdownHeading {
-  cursor: pointer;
-  background-color: aqua;
-  height: 2vw;
-}
 
-.dropdownHeading:hover, .dropdownHeading:focus {
-  background-color: #2980B9;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdownContent {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 2vw;
-}
-
-.dropdownContent a:hover {background-color: #ddd;}
-
-.show {display:block;}
 
 </style>
