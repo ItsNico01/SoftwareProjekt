@@ -27,22 +27,17 @@ const listItems = [
 </script>
 
 <template>
-  <v-col
-      class=" ml-auto"
-      xs="3"
-      sm="3"
-      md="3"
-      lg="5"
-      xl="5"
-      xxl="2">
-    <v-card
 
-        max-width="300"
+  <v-container>
+    <v-row class="d-flex justify-end">
+      <v-col xs="10" sm="3" md="3" lg="5" xl="5" xxl="2">
+        <v-card max-width="300">
+          <v-list :items="listItems"></v-list>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 
-    >
-      <v-list :items="listItems"></v-list>
-    </v-card>
-  </v-col>
 
 </template>
 
