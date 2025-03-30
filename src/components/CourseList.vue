@@ -1,9 +1,12 @@
 <script setup>
-
+const props = defineProps( {
+  major: String
+})
+//TODO:Value ändern
 const listItems = [
   { type: 'subheader', title: 'Studiengang' },
   {
-    title: 'Fachschaft',
+    title: 'Fachschaft ' + props.major.toUpperCase(),
     value: 1,
   },
   {
@@ -23,21 +26,13 @@ const listItems = [
 ]
 
 
-
 </script>
 
 <template>
 
-  <v-container>
-    <v-row class="d-flex justify-end">
-      <v-col xs="10" sm="3" md="3" lg="5" xl="5" xxl="2">
-        <v-card max-width="300">
-          <v-list :items="listItems"></v-list>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
-
+  <v-card title="Kurse" class="fill-height">
+    <v-list :items="listItems"></v-list>
+  </v-card>
 
 </template>
 

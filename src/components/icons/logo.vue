@@ -1,19 +1,20 @@
 <script setup>
+//TODO:LoginView anpassen.
+const logo = new URL('@/assets/hshl.png', import.meta.url).href;
 
 </script>
 
 <template>
-  <div class="logo">
+<!--  <div class="logo">
     <img src="../../assets/hshl.png" alt="logo">
-  </div>
+  </div>-->
+  <v-img
+      :width="10"
+      :src= "logo"
+  ></v-img>
+
 </template>
 
 <style scoped>
-.logo {
-  max-width: fit-content;
-  margin-inline: auto;
-}
-img {
-  max-height: 10vw;
-}
+
 </style>

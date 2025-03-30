@@ -11,10 +11,13 @@
 
 
 <template>
+  <v-app>
+    <!-- Desktop wird immer angezeigt, außer bei der WelcomeView-->
+    <router-view v-if="route.path==='/'"/>
+    <Desktop v-else/>
+  </v-app>
 
-  <!-- Desktop wird immer angezeigt, außer bei der WelcomeView-->
-  <router-view v-if="route.path==='/'"/>
-  <Desktop v-else/>
+
 
 
 
