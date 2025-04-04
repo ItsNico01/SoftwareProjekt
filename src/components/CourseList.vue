@@ -10,7 +10,7 @@ const listItems = [
     value: 1,
   },
   {
-    title: 'Sommersemester 2025',
+    title: 'Sommersemester '+ new Date().getFullYear().toString() ,
     value: 2,
   },
   { type: 'divider' },
