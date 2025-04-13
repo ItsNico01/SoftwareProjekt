@@ -1,29 +1,35 @@
 <script setup>
+import {ref} from "vue";
+
 const props = defineProps( {
   major: String
 })
+const selected = ref("");
+
+defineExpose({selected});
 //TODO:Value ändern
 const listItems = [
   { type: 'subheader', title: 'Studiengang' },
   {
     title: 'Fachschaft ' + props.major.toUpperCase(),
-    value: 1,
+    value: 'fachschaft_' + props.major.toUpperCase(),
   },
   {
     title: 'Sommersemester '+ new Date().getFullYear().toString() ,
-    value: 2,
+    value: 'ss_'+ new Date().getFullYear().toString(),
   },
   { type: 'divider' },
   { type: 'subheader', title: 'Hochschulweite Kurse' },
   {
     title: 'Stundenplanung',
-    value: 4,
+    value: 'stundenplanung',
   },
   {
     title: 'Prüfungsplanung',
-    value: 5,
+    value: 'pruefungsplanung',
   },
 ]
+
 
 
 </script>
@@ -31,11 +37,9 @@ const listItems = [
 <template>
 
   <v-card title="Kurse" class="fill-height">
-    <v-list :items="listItems"></v-list>
+    <v-list :items="listItems" v-model:selected="selected"></v-list>
   </v-card>
-
 </template>
-
 <style scoped>
 
 
