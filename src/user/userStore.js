@@ -1,17 +1,20 @@
-import { User } from "@/user/user.js";
+import {UserBuilder} from "@/user/userBuilder.js";
 
 export class UserStore {
     constructor() {
-        this.user = new User();
         this.loadUser();
     }
 
     //Userdaten aus der RegisterForm.vue werden entgegengenommen und im localStorage gespeichert.
     createUser(avatar) {
-        this.user.setFirstName = document.getElementById("firstName").value;
-        this.user.setMajor = document.getElementById("major").value;
-        this.user.setDifficulty = document.getElementById("difficulty").value;
-        this.user.setAvatar = avatar;
+
+        this.user = new UserBuilder().setName(document.getElementById("firstName").value)
+            .setMajor(document.getElementById("major").value)
+            .setDifficulty(document.getElementById("difficulty").value)
+            .setAvatar(avatar)
+            .build();
+
+
         this.saveUser();
         console.log(this.user);
     }
@@ -25,10 +28,12 @@ export class UserStore {
     loadUser() {
         const userData = JSON.parse(localStorage.getItem('user'));
         if (userData) {
-            this.user.setFirstName = userData["firstName"];
-            this.user.setMajor = userData["major"];
-            this.user.setDifficulty = userData["difficulty"];
-            this.user.setAvatar = userData["avatar"];
+            this.user = new UserBuilder()
+                .setName(userData["firstName"])
+                .setMajor(userData["major"])
+                .setDifficulty(userData["difficulty"])
+                .setAvatar(userData["avatar"])
+                .build();
 
             console.log(this.user);
         }
@@ -37,7 +42,7 @@ export class UserStore {
     //Den geänderten Avatar als neuen Avatar setzen und den User im localStorage speichern.
     //Nun kann der Avatar in der DesktopView persistent geändert werden.
     updateAvatar(location) {
-        this.user.setAvatar = location;
+        this.user.setAvatar(location);
         this.saveUser();
     }
 

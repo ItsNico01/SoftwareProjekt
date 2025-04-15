@@ -4,41 +4,45 @@ export class User {
     #major = "";
     #difficulty = "";
     #avatar = "";
-    constructor() {
+    constructor(name, major, difficulty, avatar) {
+        this.#firstName = name;
+        this.#major = major;
+        this.#difficulty = difficulty;
+        this.#avatar = avatar;
+    }
 
+    setFirstName(name) {
+        this.#firstName = name;
+    }
+
+    setMajor(major) {
+        this.#major = major;
+    }
+
+    setDifficulty(diff) {
+        this.#difficulty = diff;
+    }
+
+    setAvatar(avatar) {
+        this.#avatar = avatar;
     }
 
     get getFirstName() {
         return this.#firstName;
     }
 
-    set setFirstName(firstName) {
-        this.#firstName = firstName;
-    }
-
     get getMajor() {
         return this.#major;
-    }
-
-    set setMajor(major) {
-        this.#major = major;
     }
 
     get getDifficulty() {
         return this.#difficulty;
     }
 
-    set setDifficulty(difficulty) {
-        this.#difficulty = difficulty;
-    }
-
     get getAvatar() {
         return this.#avatar;
     }
 
-    set setAvatar(avatar) {
-        this.#avatar = avatar;
-    }
 
     //zum Speichern im localStorage
     toJSON() {
