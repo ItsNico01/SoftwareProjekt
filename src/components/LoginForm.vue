@@ -2,14 +2,28 @@
 
 import router from "../../router/router.js";
 import {userStore} from "@/user/userStore.js";
+import {useRoute} from "vue-router";
 
 //Hole aktuellen User.
 const user = userStore.getUser();
 
+const route = useRoute();
+
+//Checken, ob man im normalen Login oder beim Login des COO ist.
+//Je nachdem wird man zu einem anderen path weitergeleitet
+let submitDirection = () => {
+  if(route.path=== "/login") {
+    router.push('/myHSHL')
+  }else if(route.path === "/campusOfficeLogin") {
+    router.push('/campusOffice');
+  }
+}
+
+
 </script>
 
 <template>
-  <form @submit.prevent="router.push('/myHSHL')" class="loginForm">
+  <form @submit.prevent="submitDirection()" class="loginForm">
     <div class="name">
       <label for="username">Username: </label>
       <input v-model="user.getFirstName" id="username" type="text"  disabled/>

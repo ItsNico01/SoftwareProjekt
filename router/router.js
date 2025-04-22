@@ -6,6 +6,7 @@ const routes = [
     { path: '/home', component: () => import('../views/DesktopView.vue') },
     { path: '/login', component: () => import('../views/LoginView.vue') },
     { path: '/myHSHL', component: () => import('../views/MyHSHLView.vue') },
+    { path: '/campusOfficeLogin', component: () => import('../views/CampusOfficeLoginView.vue') },
     { path: '/campusOffice', component: () => import('../views/CampusOfficeView.vue') },
     { path: '/lernplattform', component: () => import('../views/LernplattformView.vue') },
     { path: '/:pathMatch(.*)*', redirect: '/' },
