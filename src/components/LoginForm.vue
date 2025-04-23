@@ -7,6 +7,7 @@ import {useRoute} from "vue-router";
 //Hole aktuellen User.
 const user = userStore.getUser();
 
+//Aktuelle Route
 const route = useRoute();
 
 //Checken, ob man im normalen Login oder beim Login des COO ist.
@@ -23,7 +24,7 @@ let submitDirection = () => {
 </script>
 
 <template>
-  <form @submit.prevent="submitDirection()" class="loginForm">
+  <form @submit.prevent="submitDirection" class="loginForm">
     <div class="name">
       <label for="username">Username: </label>
       <input v-model="user.getFirstName" id="username" type="text"  disabled/>

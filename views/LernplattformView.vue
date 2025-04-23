@@ -1,15 +1,42 @@
 <script setup>
 import Logo from "@/components/icons/logo.vue";
-import CourseList from "@/components/CourseList.vue";
+import SideMenuList from "@/components/SideMenuList.vue";
 import {userStore} from "@/user/userStore.js";
 import PageTitleCard from "@/components/PageTitleCard.vue";
 import Stundenplanung from "@/components/Stundenplanung.vue";
 import {ref} from "vue";
+import {useRoute} from "vue-router";
 
 //User aus dem LocalStorage holen
 const user = userStore.getUser();
 
+const route = useRoute()
+
+//Ausgewählter Menüpunkt
 const selected = ref("");
+
+//SideMenuList Items
+const listItems = [
+  { type: 'subheader', title: 'Studiengang' },
+  {
+    title: 'Fachschaft ' + user.getMajor.toUpperCase(),
+    value: 'fachschaft_' + user.getMajor.toUpperCase(),
+  },
+  {
+    title: 'Sommersemester '+ new Date().getFullYear().toString() ,
+    value: 'ss_'+ new Date().getFullYear().toString(),
+  },
+  { type: 'divider' },
+  { type: 'subheader', title: 'Hochschulweite Kurse' },
+  {
+    title: 'Stundenplanung',
+    value: 'stundenplanung',
+  },
+  {
+    title: 'Prüfungsplanung',
+    value: 'pruefungsplanung',
+  },
+]
 </script>
 
 <template>
@@ -20,7 +47,7 @@ const selected = ref("");
         <Logo/>
       </v-col>
       <v-col cols="10"  >
-        <PageTitleCard/>
+        <PageTitleCard :title="route.path"/>
 
         <!-- Innerhalb Div: Content-->
         <div class=" w-100 d-flex justify-center ma-1">
@@ -30,16 +57,10 @@ const selected = ref("");
 
 
       <v-col class="d-flex h-75 justify-end fill-height " cols="2">
-        <CourseList :major= "user.getMajor" class="w-100" ref="selected"/>
+        <SideMenuList :listItems="listItems" class="w-100" ref="selected"/>
       </v-col>
 
     </v-row>
-
-
-
-
-
-
   </v-container>
 
 </template>
