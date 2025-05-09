@@ -20,13 +20,11 @@ const courseItems = (props.major.getCoursesOf(props.major.getName))
 
 const selected = ref('');
 
+//Prüfungsanmeldung
 function handleRegistration(item){
-  //TODO: Wenn nicht enthalten
   if(!user.getRegisteredCourses.includes(item)){
     userStore.updateRegisteredCourses(item);
   }
-
-
   console.log(item);
   console.log(user.getRegisteredCourses)
   alert("angemeldet");
@@ -51,14 +49,10 @@ function handleRegistration(item){
       <v-col v-if="selected">
         <v-card title="Kurse" class="fill-height">
           <v-list-item v-for="(item, i) in courseItems" :key="i">
-            <v-list-item-content>
               <v-list-item-title v-text="item"></v-list-item-title>
-            </v-list-item-content>
-            <v-list-item-icon >
               <v-btn @click="handleRegistration(item)">
                 Anmelden
               </v-btn>
-            </v-list-item-icon>
           </v-list-item>
 
 
