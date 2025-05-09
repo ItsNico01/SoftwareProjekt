@@ -5,6 +5,18 @@ import SideMenuList from "@/components/SideMenuList.vue";
 import PageTitleCard from "@/components/PageTitleCard.vue";
 import {ref} from "vue";
 import ExamRegistration from "@/components/ExamRegistration.vue";
+import {Major} from "@/majors/major.js";
+import {userStore} from "@/user/userStore.js";
+
+
+//User aus dem LocalStorage holen
+const user = userStore.getUser();
+
+
+
+//Studiengänge erstellen
+const major = new Major(user.getMajor);
+
 
 //Ausgewählter Menüpunkt
 const selected = ref([""]);
@@ -40,6 +52,8 @@ const listItems = [
     value: 'Leistungsnachweis',
   },
 ]
+
+
 </script>
 
 <template>
@@ -61,8 +75,7 @@ const listItems = [
 
           <!-- Innerhalb Div: Content-->
           <div class=" w-100 d-flex justify-center ma-1">
-            <ExamRegistration v-if="selected.selected?.[0] === 'Anmeldung zu den Modulprüfungen'" class="w-100 text-center" />
-
+            <ExamRegistration :major="major" v-if="selected.selected?.[0] === 'Anmeldung zu den Modulprüfungen'" class="w-100 text-center" />
           </div>
         </v-col>
 

@@ -4,6 +4,7 @@ export class User {
     #major = "";
     #difficulty = "";
     #avatar = "";
+    registeredCourses = [];
     constructor(name, major, difficulty, avatar) {
         this.#firstName = name;
         this.#major = major;
@@ -27,6 +28,11 @@ export class User {
         this.#avatar = avatar;
     }
 
+    setRegisteredCourses(registeredCourse) {
+        this.registeredCourses.push(registeredCourse);
+
+    }
+
     get getFirstName() {
         return this.#firstName;
     }
@@ -43,6 +49,11 @@ export class User {
         return this.#avatar;
     }
 
+    get getRegisteredCourses() {
+        return this.registeredCourses;
+    }
+    
+
 
     //zum Speichern im localStorage
     toJSON() {
@@ -50,7 +61,9 @@ export class User {
             firstName: this.#firstName,
             major: this.#major,
             difficulty: this.#difficulty,
-            avatar: this.#avatar
+            avatar: this.#avatar,
+            registeredCourses: this.registeredCourses
+
         };
     }
 

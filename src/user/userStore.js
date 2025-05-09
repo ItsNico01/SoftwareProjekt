@@ -33,6 +33,7 @@ export class UserStore {
                 .setMajor(userData["major"])
                 .setDifficulty(userData["difficulty"])
                 .setAvatar(userData["avatar"])
+                .setRegisteredCourses(userData["registeredCourses"])
                 .build();
 
             console.log(this.user);
@@ -43,6 +44,12 @@ export class UserStore {
     //Nun kann der Avatar in der DesktopView persistent geändert werden.
     updateAvatar(location) {
         this.user.setAvatar(location);
+        this.saveUser();
+    }
+
+    //Hinzufügen von Kursen zum user persistent machen.
+    updateRegisteredCourses(courses) {
+        this.user.setRegisteredCourses(courses);
         this.saveUser();
     }
 

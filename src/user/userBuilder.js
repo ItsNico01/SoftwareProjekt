@@ -21,6 +21,19 @@ export class UserBuilder {
         this.user.setAvatar(avatar);
         return this;
     }
+    setRegisteredCourses(courses) {
+
+        if (Array.isArray(courses)) {
+            // Flach machen, falls Arrays verschachtelt sind
+            this.user.registeredCourses = courses.flat();
+
+        } else if(!this.user.getRegisteredCourses.includes(courses)) {
+            this.user.setRegisteredCourses.push(courses);
+        }
+
+
+        return this;
+    }
     build(){
         return this.user;
     }

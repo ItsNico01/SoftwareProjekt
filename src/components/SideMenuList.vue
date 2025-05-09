@@ -17,7 +17,6 @@ defineExpose({selected});
   <v-card title="Kurse" class="fill-height">
     <v-list :items="props.listItems" v-model:selected="selected"></v-list>
 
-
   </v-card>
 </template>
 <style scoped>
