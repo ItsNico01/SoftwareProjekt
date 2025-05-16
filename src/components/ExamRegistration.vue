@@ -54,10 +54,6 @@ function handleRegistration(item){
                 Anmelden
               </v-btn>
           </v-list-item>
-
-
-
-
         </v-card>
       </v-col>
     </v-row>

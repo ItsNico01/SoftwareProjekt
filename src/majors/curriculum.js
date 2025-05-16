@@ -2,6 +2,7 @@ import {Course} from "@/majors/course.js";
 
 //JavaScript Objekt mit Key-Value Paaren
 //Stellt alle Kurse des jeweiligen Studiengangs dar
+//TODO: Ergänzen
 export const curriculum = {
     "ais": [
         new Course("Mathematik 1", 1),

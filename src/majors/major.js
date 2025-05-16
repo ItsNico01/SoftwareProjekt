@@ -9,7 +9,7 @@ export class Major{
         this.createCourses();
     }
 
-    //Für jeden vorhandenen Kurs in Curriculum mapCourses ausführen
+    //Für jeden vorhandenen Kurs in Curriculum jenen Course hinzufügen
     createCourses(){
         const courses = curriculum[this.#name];
         if (courses) {
