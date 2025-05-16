@@ -28,7 +28,7 @@ export class UserBuilder {
             this.user.registeredCourses = courses.flat();
 
         } else if(!this.user.getRegisteredCourses.includes(courses)) {
-            this.user.setRegisteredCourses.push(courses);
+            this.user.setRegisteredCourses(courses);
         }
 
 

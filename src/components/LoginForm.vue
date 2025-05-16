@@ -3,9 +3,12 @@
 import router from "../../router/router.js";
 import {userStore} from "@/user/userStore.js";
 import {useRoute} from "vue-router";
+import {questFlow} from "@/quests/QuestFlow.js";
 
 //Hole aktuellen User.
 const user = userStore.getUser();
+//Hole den Questflow.
+const flow = questFlow.getQuestFlow();
 
 //Aktuelle Route
 const route = useRoute();
@@ -14,7 +17,8 @@ const route = useRoute();
 //Je nachdem wird man zu einem anderen path weitergeleitet
 let submitDirection = () => {
   if(route.path=== "/login") {
-    router.push('/myHSHL')
+    flow.stepCompleted("Gehe auf myHSHL")
+    router.push('/myHSHL');
   }else if(route.path === "/campusOfficeLogin") {
     router.push('/campusOffice');
   }
