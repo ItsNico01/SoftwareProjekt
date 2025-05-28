@@ -1,4 +1,3 @@
-import {QuestState} from "@/quests/QuestState.js";
 
 export class QuestFlow {
     #quests = [];
@@ -14,14 +13,12 @@ export class QuestFlow {
 
     //Falls Items im Queueu und nicht leer -> Das 1. löschen
     dequeueQuests() {
-        if(!this.isEmpty()){
+
+        if(this.getActiveQuest().allStepsCompleted() && !this.isEmpty()){
             this.getActiveQuest().complete();
             this.#quests.shift();
-        }else{
-            console.log("QuestFlow is empty");
+
         }
-
-
 
     }
 
@@ -46,21 +43,23 @@ export class QuestFlow {
         }
     }
 
-    //Prüfen, ob der Schritt erledigt wurde.
-    stepCompleted(stepName){
+    startConfig(){
         //Aktuelle Quest holen
         const activeQuest = this.getActiveQuest();
 
         //Aktuelle Quest aktivieren.
         activeQuest.start();
-
-
+        //Unteraufgabe vorbereiten.
         activeQuest.stepInProgress();
 
 
+    }
 
+    //Prüfen, ob der Schritt erledigt wurde.
+    stepCompleted(stepName){
+        this.startConfig();
 
-
+        //Unteraufgabe der aktuellen Quest
         const stepInProgress = this.getActiveQuest().getStepInProgress();
 
         //Schritt erledigt? Setze ihn als erledigt und setze den nächsten auf "in Progress"
@@ -69,19 +68,14 @@ export class QuestFlow {
             this.getActiveQuest().stepInProgress();
         }
 
+        //Wenn alle Unteraufgaben erledigt sind: Quest entfernen
+        this.dequeueQuests();
 
-        if(this.getActiveQuest().allStepsCompleted()){
 
-            this.dequeueQuests();
-
-        }
 
         console.log(this.#quests)
 
     }
-    //TODO: Checken ob alle completed sind
-
-
 
     getQuestFlow() {
         return this;
