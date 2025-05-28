@@ -6,6 +6,7 @@ import PageTitleCard from "@/components/PageTitleCard.vue";
 import Stundenplanung from "@/components/Stundenplanung.vue";
 import {ref} from "vue";
 import {useRoute} from "vue-router";
+import {questFlow} from "@/quests/QuestFlow.js";
 
 //User aus dem LocalStorage holen
 const user = userStore.getUser();
@@ -31,12 +32,19 @@ const listItems = [
   {
     title: 'Stundenplanung',
     value: 'stundenplanung',
+
   },
   {
     title: 'Prüfungsplanung',
     value: 'pruefungsplanung',
   },
 ]
+
+//Hole den Questflow.
+const flow = questFlow.getQuestFlow();
+
+
+
 </script>
 
 <template>
@@ -51,7 +59,7 @@ const listItems = [
 
         <!-- Innerhalb Div: Content-->
         <div class=" w-100 d-flex justify-center ma-1">
-          <Stundenplanung v-if="selected.selected?.[0] === 'stundenplanung'" class="w-100 text-center" />
+          <Stundenplanung v-if="selected.selected?.[0] === 'stundenplanung'" class="w-100 text-center" @click="flow.stepCompleted('Gehe auf Stundenplanung')"/>
         </div>
       </v-col>
 

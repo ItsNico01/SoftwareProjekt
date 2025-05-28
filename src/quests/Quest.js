@@ -28,6 +28,9 @@ export class Quest {
             if(this.#steps[x].getState() === QuestState.NOT_STARTED){
                 this.#steps[x].setState(QuestState.IN_PROGRESS);
                 break;
+            }else{
+
+
             }
         }
     }
@@ -39,6 +42,19 @@ export class Quest {
                 return this.#steps[x];
             }
         }
+    }
+
+    getSteps() {
+        return this.#steps;
+    }
+
+    allStepsCompleted(){
+        for(let x = 0; x < this.#steps.length; x++){
+            if(this.#steps[x].getState() !== QuestState.DONE){
+                return false;
+            }
+        }
+        return true;
     }
 
     start() {

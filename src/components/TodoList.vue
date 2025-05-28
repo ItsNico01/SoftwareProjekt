@@ -9,12 +9,11 @@ const quest2 = new Quest("Melde dich zu einer Prüfung an")
 
 //Der Aufgabenfluss
 const flow = questFlow.getQuestFlow();
-flow.enqueue(quest1);
-//questFlow.enqueue(quest2);
+flow.enqueueQuests(quest1);
+flow.enqueueQuests(quest2);
 
 
 //flow.print();
-flow.start()
 
 const items = ["1", "2", "3"];
 </script>

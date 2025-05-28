@@ -1,22 +1,36 @@
+import {QuestState} from "@/quests/QuestState.js";
+
 export class QuestFlow {
     #quests = [];
     constructor() {
     }
 
     //Quests in QuestFlow einfügen
-    enqueue(element){
+    enqueueQuests(element){
         this.#quests.push(element);
     }
 
-    //Falls Items im Queueu -> Das 1. löschen
-    dequeue() {
-        return this.isEmpty ? "QuestFlow is empty" : this.#quests.shift()
+
+
+    //Falls Items im Queueu und nicht leer -> Das 1. löschen
+    dequeueQuests() {
+        if(!this.isEmpty()){
+            this.getActiveQuest().complete();
+            this.#quests.shift();
+        }else{
+            console.log("QuestFlow is empty");
+        }
+
+
+
     }
 
     //Das vorderste Item anzeigen
-    peek(){
-        return this.isEmpty() ? "Queue is empty" : this.#quests[0];
+    getActiveQuest(){
+        return this.isEmpty() ? "QuestFlow is empty" : this.#quests[0];
     }
+
+
 
     isEmpty() {
         return this.#quests.length === 0;
@@ -33,27 +47,40 @@ export class QuestFlow {
     }
 
     //Prüfen, ob der Schritt erledigt wurde.
-    //Wenn ja: Schritt als erledigt markieren + den neuen Schritt aktivieren.
     stepCompleted(stepName){
-        const stepInProgress = this.peek().getStepInProgress();
+        //Aktuelle Quest holen
+        const activeQuest = this.getActiveQuest();
 
-        if (stepInProgress.getName() === stepName) {
-            console.log("erledigt")
+        //Aktuelle Quest aktivieren.
+        activeQuest.start();
+
+
+        activeQuest.stepInProgress();
+
+
+
+
+
+        const stepInProgress = this.getActiveQuest().getStepInProgress();
+
+        //Schritt erledigt? Setze ihn als erledigt und setze den nächsten auf "in Progress"
+        if (stepInProgress?.getName() === stepName) {
             stepInProgress.complete();
-            this.peek().stepInProgress();
+            this.getActiveQuest().stepInProgress();
         }
-        console.log(this.peek());
+
+
+        if(this.getActiveQuest().allStepsCompleted()){
+
+            this.dequeueQuests();
+
+        }
+
+        console.log(this.#quests)
+
     }
+    //TODO: Checken ob alle completed sind
 
-    start(){
-        //Starte 1. Quest
-        const firstQuest= this.peek();
-        firstQuest.start();
-
-        firstQuest.stepInProgress();
-
-        this.print();
-    }
 
 
     getQuestFlow() {

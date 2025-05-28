@@ -1,5 +1,13 @@
 <script setup>
 import {ref} from "vue";
+import {userStore} from "@/user/userStore.js";
+import {questFlow} from "@/quests/QuestFlow.js";
+
+//User aus dem LocalStorage holen
+const user = userStore.getUser();
+
+//Hole den Questflow.
+const flow = questFlow.getQuestFlow();
 
 const selected = ref("");
 let timeTable;
@@ -24,19 +32,32 @@ const listItems = [
   },
 ]
 
+function handleSideQuestEvent(){
+  let selectedListItem = selected.value[0];
+  selectedListItem = selectedListItem.slice(0, -2);
+
+  if(selectedListItem === user.getMajor.toUpperCase() && selected.value[0].includes("1")){
+    flow.stepCompleted("Wähle deinen Stundenplan aus");
+  }
+
+  buildTimeTableURL();
+
+}
 //URL zusammenbauen, sowie den angeklickten Listenpunkt auf null setzen.
 //Sonst kann ein Listenpunkt nicht 2x hintereinander angeklickt werden.
 function buildTimeTableURL() {
+
   timeTable = new URL(`../assets/Stundenplan/${selected.value[0]}.png`, import.meta.url).href
   selected.value =null
 }
+
 
 
 </script>
 
 <template>
   <v-card title="Stundenplanung" class="fill-height">
-    <v-list :items="listItems" v-model:selected="selected" @click="buildTimeTableURL">
+    <v-list :items="listItems" v-model:selected="selected" @click="handleSideQuestEvent">
     </v-list>
 
     <!-- Overlay zeigt den Stundenplan an-->

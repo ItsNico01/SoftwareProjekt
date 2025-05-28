@@ -9,7 +9,17 @@ const props = defineProps( {
   buttonItems: Object,
 })
 
+//Hole den Questflow.
+const flow = questFlow.getQuestFlow();
 
+
+function handleRoute(index){
+  if(props.buttonItems[index].name === "Lernplattform") {
+    flow.stepCompleted("Gehe auf Lernplattform");
+  }
+  router.push(props.buttonItems[index].route)
+
+}
 
 </script>
 
@@ -20,7 +30,7 @@ const props = defineProps( {
     <div v-for="(item, index) in buttonItems"
          :key="item"
          :class="props.buttonItems[index].style"
-         @click="router.push(props.buttonItems[index].route)">{{props.buttonItems[index].name}}</div>
+         @click="handleRoute(index);">{{props.buttonItems[index].name}}</div>
   </div>
 </template>
 
