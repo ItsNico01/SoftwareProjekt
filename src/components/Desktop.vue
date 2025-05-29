@@ -5,14 +5,23 @@ import {RouterView} from "vue-router";
 </script>
 
 <template>
-  <div class="window">
-    <!-- Content -->
-    <router-view/>
-  </div>
+  <v-container>
+    <v-row>
+      <v-col>
+        <div class="window">
+          <!-- Content -->
+          <router-view/>
+        </div>
 
-  <div class="standVertical"></div>
-  <div class="standHorizontal"></div>
-  <TodoList/>
+        <div class="standVertical"></div>
+        <div class="standHorizontal"></div>
+
+        <TodoList class="todo w-25 position-absolute"/>
+
+      </v-col>
+    </v-row>
+  </v-container>
+
 </template>
 
 <style scoped>
@@ -34,5 +43,8 @@ import {RouterView} from "vue-router";
   width: 90%;
   border-top: 1vw solid black;
   margin-inline: auto;
+}
+.todo {
+  margin-top: -10vw;
 }
 </style>
