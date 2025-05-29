@@ -1,5 +1,4 @@
-
-export class QuestFlow {
+class QuestFlow {
     #quests = [];
     constructor() {
     }

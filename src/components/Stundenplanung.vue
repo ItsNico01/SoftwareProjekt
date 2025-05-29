@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import {userStore} from "@/user/userStore.js";
 import {questFlow} from "@/quests/QuestFlow.js";
 
@@ -32,6 +32,8 @@ const listItems = [
   },
 ]
 
+onMounted(() => flow.stepCompleted('Gehe auf Stundenplanung'))
+
 function handleSideQuestEvent(){
   let selectedListItem = selected.value[0];
   selectedListItem = selectedListItem.slice(0, -2);
@@ -56,7 +58,7 @@ function buildTimeTableURL() {
 </script>
 
 <template>
-  <v-card title="Stundenplanung" class="fill-height">
+  <v-card title="Stundenplanung" class="fill-height" >
     <v-list :items="listItems" v-model:selected="selected" @click="handleSideQuestEvent">
     </v-list>
 

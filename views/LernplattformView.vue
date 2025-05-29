@@ -4,7 +4,7 @@ import SideMenuList from "@/components/SideMenuList.vue";
 import {userStore} from "@/user/userStore.js";
 import PageTitleCard from "@/components/PageTitleCard.vue";
 import Stundenplanung from "@/components/Stundenplanung.vue";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import {useRoute} from "vue-router";
 import {questFlow} from "@/quests/QuestFlow.js";
 
@@ -59,7 +59,7 @@ const flow = questFlow.getQuestFlow();
 
         <!-- Innerhalb Div: Content-->
         <div class=" w-100 d-flex justify-center ma-1">
-          <Stundenplanung v-if="selected.selected?.[0] === 'stundenplanung'" class="w-100 text-center" @click="flow.stepCompleted('Gehe auf Stundenplanung')"/>
+          <Stundenplanung v-if="selected.selected?.[0] === 'stundenplanung'" class="w-100 text-center"/>
         </div>
       </v-col>
 

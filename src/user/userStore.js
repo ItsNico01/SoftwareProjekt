@@ -1,6 +1,6 @@
 import {UserBuilder} from "@/user/userBuilder.js";
 
-export class UserStore {
+class UserStore {
     constructor() {
         this.loadUser();
     }

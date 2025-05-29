@@ -14,6 +14,10 @@ export class Quest {
 
     }
 
+    getName(){
+        return this.#name;
+    }
+
     //Steps der Quest hinzufügen
     mapSteps(){
         const steps = QuestData[this.#name];
