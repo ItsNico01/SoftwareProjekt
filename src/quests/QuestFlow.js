@@ -43,36 +43,42 @@ class QuestFlow {
     }
 
     startConfig(){
-        //Aktuelle Quest holen
-        const activeQuest = this.getActiveQuest();
 
-        //Aktuelle Quest aktivieren.
-        activeQuest.start();
-        //Unteraufgabe vorbereiten.
-        activeQuest.stepInProgress();
+            //Aktuelle Quest holen
+            const activeQuest = this.getActiveQuest();
+
+            //Aktuelle Quest aktivieren.
+            activeQuest.start();
+            //Unteraufgabe vorbereiten.
+            activeQuest.stepInProgress();
 
 
     }
 
     //Prüfen, ob der Schritt erledigt wurde.
     stepCompleted(stepName){
-        this.startConfig();
+        if(!this.isEmpty()){
+            this.startConfig();
 
-        //Unteraufgabe der aktuellen Quest
-        const stepInProgress = this.getActiveQuest().getStepInProgress();
+            //Unteraufgabe der aktuellen Quest
+            const stepInProgress = this.getActiveQuest().getStepInProgress();
 
-        //Schritt erledigt? Setze ihn als erledigt und setze den nächsten auf "in Progress"
-        if (stepInProgress?.getName() === stepName) {
-            stepInProgress.complete();
-            this.getActiveQuest().stepInProgress();
+
+            //Schritt erledigt? Setze ihn als erledigt und setze den nächsten auf "in Progress"
+            if (stepInProgress?.getName() === stepName) {
+                stepInProgress.complete();
+                this.getActiveQuest().stepInProgress();
+            }
+
+            //Wenn alle Unteraufgaben erledigt sind: Quest entfernen
+            this.dequeueQuests();
+
+
+
+
         }
-
-        //Wenn alle Unteraufgaben erledigt sind: Quest entfernen
-        this.dequeueQuests();
-
-
-
         console.log(this.#quests)
+
 
     }
 

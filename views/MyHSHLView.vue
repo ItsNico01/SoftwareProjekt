@@ -1,5 +1,10 @@
 <script setup>
 import ButtonGrid from "@/components/ButtonGrid.vue";
+import {onMounted, onUpdated} from "vue";
+import {questFlow} from "@/quests/QuestFlow.js";
+
+//Hole den Questflow.
+const flow = questFlow.getQuestFlow();
 
 const buttonGridItems = [
   {name:"Bibliothekskonto", route: "", style:"myHSHL"},
@@ -8,6 +13,8 @@ const buttonGridItems = [
   {name:"StudyAssist", route:"",style:"myHSHL"},
   {name:"Postfach", route:"", style:"myHSHL"},
 ]
+
+onMounted(() => {flow.stepCompleted("Gehe auf myHSHL");})
 </script>
 
 <template>

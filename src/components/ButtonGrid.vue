@@ -13,12 +13,6 @@ const props = defineProps( {
 const flow = questFlow.getQuestFlow();
 
 
-
-onUpdated(() => {
-  if(flow.getActiveQuest().getName() !== "Finde deinen Stundenplan"){
-    flow.stepCompleted("Gehe auf Lernplattform");
-  }})
-
 function handleRoute(index){
   if(props.buttonItems[index].name === "Lernplattform") {
     flow.stepCompleted("Gehe auf Lernplattform");

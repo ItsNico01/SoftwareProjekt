@@ -3,10 +3,11 @@ import Stundenplanung from "@/components/Stundenplanung.vue";
 import Logo from "@/components/icons/logo.vue";
 import SideMenuList from "@/components/SideMenuList.vue";
 import PageTitleCard from "@/components/PageTitleCard.vue";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import ExamRegistration from "@/components/ExamRegistration.vue";
 import {Major} from "@/majors/major.js";
 import {userStore} from "@/user/userStore.js";
+import {questFlow} from "@/quests/QuestFlow.js";
 
 
 //User aus dem LocalStorage holen
@@ -52,6 +53,13 @@ const listItems = [
     value: 'Leistungsnachweis',
   },
 ]
+
+//Hole den Questflow.
+const flow = questFlow.getQuestFlow();
+
+onMounted(() => {
+  flow.stepCompleted("Gehe auf Campus Office Online");
+})
 
 
 </script>
