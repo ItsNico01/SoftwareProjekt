@@ -1,5 +1,7 @@
+import {reactive} from "vue";
+
 class QuestFlow {
-    #quests = [];
+    #quests = reactive([]);
     constructor() {
     }
 
@@ -23,7 +25,9 @@ class QuestFlow {
 
     //Das vorderste Item anzeigen
     getActiveQuest(){
-        return this.isEmpty() ? "QuestFlow is empty" : this.#quests[0];
+        if(!this.isEmpty()){
+            return this.#quests[0]
+        }
     }
 
 
@@ -88,4 +92,5 @@ class QuestFlow {
 }
 
 //QuestFlow, der im gesamten Programm genutzt wird.
-export const questFlow = new QuestFlow();
+const questFlow = new QuestFlow();
+export default questFlow;

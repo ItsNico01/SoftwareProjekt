@@ -6,8 +6,8 @@ import PageTitleCard from "@/components/PageTitleCard.vue";
 import {onMounted, ref} from "vue";
 import ExamRegistration from "@/components/ExamRegistration.vue";
 import {Major} from "@/majors/major.js";
-import {userStore} from "@/user/userStore.js";
-import {questFlow} from "@/quests/QuestFlow.js";
+import userStore from "@/user/userStore.js";
+import questFlow from "@/quests/QuestFlow.js";
 
 
 //User aus dem LocalStorage holen

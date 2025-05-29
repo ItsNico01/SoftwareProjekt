@@ -1,7 +1,7 @@
 <script setup>
 import ButtonGrid from "@/components/ButtonGrid.vue";
 import {onMounted, onUpdated} from "vue";
-import {questFlow} from "@/quests/QuestFlow.js";
+import questFlow from "@/quests/QuestFlow.js";
 
 //Hole den Questflow.
 const flow = questFlow.getQuestFlow();

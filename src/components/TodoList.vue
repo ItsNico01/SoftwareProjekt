@@ -1,10 +1,12 @@
 <script setup>
-import {questFlow} from "@/quests/QuestFlow.js";
+import questFlow from "@/quests/QuestFlow.js";
 import {Quest} from "@/quests/Quest.js";
+import {computed, reactive, ref} from "vue";
+import {QuestState} from "@/quests/QuestState.js";
 
 //Die Aufgaben
-const quest1 = new Quest("Finde deinen Stundenplan")
-const quest2 = new Quest("Melde dich zu einer Prüfung an")
+const quest1 = reactive(new Quest("Finde deinen Stundenplan"));
+const quest2 = reactive(new Quest("Melde dich zu einer Prüfung an"));
 
 
 //Der Aufgabenfluss
@@ -12,10 +14,6 @@ const flow = questFlow.getQuestFlow();
 flow.enqueueQuests(quest1);
 flow.enqueueQuests(quest2);
 
-
-//flow.print();
-
-const items = ["1", "2", "3"];
 </script>
 
 <template>
@@ -23,9 +21,17 @@ const items = ["1", "2", "3"];
     <v-row>
       <v-col>
         <v-card>
-          <v-card-title>Hallo</v-card-title>
+          <v-card-title v-if="!flow.isEmpty()">{{flow.getActiveQuest().getName()}}</v-card-title>
+          <v-card-title v-else>Du hast alle Aufgaben gelöst! </v-card-title>
           <v-card-text>
-            <v-list :items="items"></v-list>
+
+            <v-list-item v-if="!flow.isEmpty()"
+                v-for="(item, i) in flow.getActiveQuest().getSteps()"
+                :key="i"
+                :value="item"
+                :class="{done: item.state === QuestState.DONE}"
+            >{{item.name}}</v-list-item>
+
           </v-card-text>
         </v-card>
       </v-col>
@@ -35,13 +41,8 @@ const items = ["1", "2", "3"];
 </template>
 
 <style scoped>
-.list {
-  width: 15vw;
-  height: 21vw;
-  background-color: #7e3535;
-  margin-top: -20vw;
-  margin-left: 4vw;
-
+.done{
+  text-decoration: line-through;
 }
 
 </style>

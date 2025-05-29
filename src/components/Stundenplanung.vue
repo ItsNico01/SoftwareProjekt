@@ -1,7 +1,7 @@
 <script setup>
 import {onMounted, ref} from "vue";
-import {userStore} from "@/user/userStore.js";
-import {questFlow} from "@/quests/QuestFlow.js";
+import userStore from "@/user/userStore.js";
+import questFlow from "@/quests/QuestFlow.js";
 
 //User aus dem LocalStorage holen
 const user = userStore.getUser();

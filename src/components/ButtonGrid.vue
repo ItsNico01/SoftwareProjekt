@@ -1,7 +1,7 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import {getCurrentInstance, onMounted, onUpdated} from "vue";
-import {questFlow} from "@/quests/QuestFlow.js";
+import questFlow from "@/quests/QuestFlow.js";
 import {QuestState} from "@/quests/QuestState.js";
 const router = useRouter()
 

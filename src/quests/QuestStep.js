@@ -1,35 +1,34 @@
 import {QuestState} from "@/quests/QuestState.js";
+import {ref} from "vue";
 
 export class QuestStep {
-    #name;
-    #state;
+    name;
+    state;
 
     constructor(name) {
-        this.#state = QuestState.NOT_STARTED;
-        this.#name = name;
+        this.state = QuestState.NOT_STARTED;
+        this.name = name;
     }
 
     getName() {
-        return this.#name;
+        return this.name;
     }
 
     getState() {
-        return this.#state;
+        return this.state;
     }
 
     setState(state) {
-        this.#state = state;
+        this.state = state;
     }
 
     start() {
-        this.#state = QuestState.IN_PROGRESS;
+        this.state = QuestState.IN_PROGRESS;
     }
 
     complete() {
-        this.#state = QuestState.DONE;
+        this.state = QuestState.DONE;
     }
 
 
 }
-
-//TODO: watcher für Tracking, ob Aufgabe beendet ist.

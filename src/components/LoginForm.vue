@@ -1,9 +1,9 @@
 <script setup>
 
 import router from "../../router/router.js";
-import {userStore} from "@/user/userStore.js";
+import userStore from "@/user/userStore.js";
 import {useRoute} from "vue-router";
-import {questFlow} from "@/quests/QuestFlow.js";
+import questFlow from "@/quests/QuestFlow.js";
 
 //Hole aktuellen User.
 const user = userStore.getUser();

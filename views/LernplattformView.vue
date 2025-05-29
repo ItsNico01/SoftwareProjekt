@@ -1,12 +1,12 @@
 <script setup>
 import Logo from "@/components/icons/logo.vue";
 import SideMenuList from "@/components/SideMenuList.vue";
-import {userStore} from "@/user/userStore.js";
+import userStore from "@/user/userStore.js";
 import PageTitleCard from "@/components/PageTitleCard.vue";
 import Stundenplanung from "@/components/Stundenplanung.vue";
 import {onMounted, ref} from "vue";
 import {useRoute} from "vue-router";
-import {questFlow} from "@/quests/QuestFlow.js";
+import questFlow from "@/quests/QuestFlow.js";
 
 //User aus dem LocalStorage holen
 const user = userStore.getUser();

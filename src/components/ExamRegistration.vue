@@ -1,8 +1,8 @@
 <script setup>
 import {acronymToFullMajor} from "@/helpers/acronymToFullMajor.js";
 import {onMounted, ref} from "vue";
-import {userStore} from "@/user/userStore.js";
-import {questFlow} from "@/quests/QuestFlow.js";
+import userStore from "@/user/userStore.js";
+import questFlow from "@/quests/QuestFlow.js";
 
 const props = defineProps( {
   major: Object,
@@ -25,7 +25,6 @@ const selected = ref('');
 function handleRegistration(item){
 
   if(!user.getRegisteredCourses.includes(item)){
-    flow.stepCompleted('Melde dich zu einer Prüfung aus deinem Studiengang an');
     userStore.updateRegisteredCourses(item);
 
   }
@@ -62,7 +61,7 @@ onMounted(() => {flow.stepCompleted("Gehe auf Anmeldung zu den Modulprüfungen")
         <v-card title="Kurse" class="fill-height">
           <v-list-item v-for="(item, i) in courseItems" :key="i" >
               <v-list-item-title v-text="item" ></v-list-item-title>
-              <v-btn @click="handleRegistration(item);">
+              <v-btn @click="flow.stepCompleted('Melde dich zu einer Prüfung aus deinem Studiengang an')">
                 Anmelden
               </v-btn>
           </v-list-item>

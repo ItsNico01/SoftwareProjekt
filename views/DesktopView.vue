@@ -6,7 +6,7 @@ import LevelBar from "@/components/LevelBar.vue";
 import {useRoute, useRouter} from "vue-router";
 import SingleButton from "@/components/SingleButton.vue";
 
-import {userStore} from "@/user/userStore.js";
+import userStore from "@/user/userStore.js";
 
 const route = useRoute();
 const style = "offButton";

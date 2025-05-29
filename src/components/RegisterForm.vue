@@ -1,6 +1,6 @@
 <script setup>
-import {computed, provide, ref} from "vue";
-import { userStore } from "@/user/userStore.js";
+import {ref} from "vue";
+import userStore  from "@/user/userStore.js";
 import router from "../../router/router.js";
 
 

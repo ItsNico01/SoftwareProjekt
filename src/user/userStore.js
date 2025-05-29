@@ -59,6 +59,7 @@ class UserStore {
     }
 }
 //Der userStore, der im gesamten Programm genutzt wird.
-export const userStore = new UserStore();
+const userStore = new UserStore();
+export default userStore;
 
 

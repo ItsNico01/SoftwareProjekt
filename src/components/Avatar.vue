@@ -2,7 +2,7 @@
 import {computed, onMounted, ref} from "vue";
 import AvatarSelection from "@/components/AvatarSelection.vue";
 //import {updateAvatar, user} from "@/user/userStore.js";
-import {userStore} from "@/user/userStore.js";
+import userStore from "@/user/userStore.js";
 
 //css: css-Klasse
 //src: Src des Avatar-Bildes.
