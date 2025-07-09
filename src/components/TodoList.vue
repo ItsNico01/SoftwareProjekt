@@ -3,6 +3,10 @@ import questFlow from "@/quests/QuestFlow.js";
 import {Quest} from "@/quests/Quest.js";
 import {computed, reactive, ref} from "vue";
 import {QuestState} from "@/quests/QuestState.js";
+import userStore from "@/user/userStore.js";
+
+//User aus dem localStorage holen
+const user = userStore.getUser();
 
 //Die Aufgaben
 const quest1 = reactive(new Quest("Finde deinen Stundenplan"));
@@ -25,7 +29,7 @@ flow.enqueueQuests(quest2);
           <v-card-title v-else>Du hast alle Aufgaben gelöst! </v-card-title>
           <v-card-text>
 
-            <v-list-item v-if="!flow.isEmpty()"
+            <v-list-item v-if="!flow.isEmpty() && user.getDifficulty === 'normal'"
                 v-for="(item, i) in flow.getActiveQuest().getSteps()"
                 :key="i"
                 :value="item"

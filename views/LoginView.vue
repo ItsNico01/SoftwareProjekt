@@ -2,7 +2,7 @@
 
 import Logo from "@/components/icons/logo.vue";
 import LoginForm from "@/components/LoginForm.vue";
-import SingleButton from "@/components/SingleButton.vue";
+import SingleButton from "@/components/singleButton.vue";
 import {useRoute, useRouter} from "vue-router";
 
 const route = useRoute();

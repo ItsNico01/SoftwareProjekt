@@ -1,7 +1,6 @@
 <script setup>
 
 import LoginForm from "@/components/LoginForm.vue";
-import SingleButton from "@/components/SingleButton.vue";
 import Logo from "@/components/icons/logo.vue";
 </script>
 
