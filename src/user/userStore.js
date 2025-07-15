@@ -15,6 +15,7 @@ class UserStore {
             .build();
 
 
+
         this.saveUser();
         console.log(this.user);
     }
@@ -33,6 +34,7 @@ class UserStore {
                 .setMajor(userData["major"])
                 .setDifficulty(userData["difficulty"])
                 .setAvatar(userData["avatar"])
+                .setLevel(userData["level"])
                 .setRegisteredCourses(userData["registeredCourses"])
                 .build();
 
@@ -44,6 +46,11 @@ class UserStore {
     //Nun kann der Avatar in der DesktopView persistent geändert werden.
     updateAvatar(location) {
         this.user.setAvatar(location);
+        this.saveUser();
+    }
+
+    updateLevel() {
+        this.user.levelup();
         this.saveUser();
     }
 

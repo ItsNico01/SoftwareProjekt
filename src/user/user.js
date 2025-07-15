@@ -4,12 +4,16 @@ export class User {
     #major = "";
     #difficulty = "";
     #avatar = "";
+    #level;
     registeredCourses = [];
     constructor(name, major, difficulty, avatar) {
         this.#firstName = name;
         this.#major = major;
         this.#difficulty = difficulty;
         this.#avatar = avatar;
+        this.#level = 1;
+
+
     }
 
     setFirstName(name) {
@@ -33,6 +37,13 @@ export class User {
 
     }
 
+    setLevel(level) {
+        this.#level = level;
+    }
+    levelup(){
+        this.#level++;
+    }
+
     get getFirstName() {
         return this.#firstName;
     }
@@ -52,6 +63,10 @@ export class User {
     get getRegisteredCourses() {
         return this.registeredCourses;
     }
+
+    get getLevel() {
+        return this.#level;
+    }
     
 
 
@@ -62,7 +77,8 @@ export class User {
             major: this.#major,
             difficulty: this.#difficulty,
             avatar: this.#avatar,
-            registeredCourses: this.registeredCourses
+            registeredCourses: this.registeredCourses,
+            level: this.#level,
 
         };
     }

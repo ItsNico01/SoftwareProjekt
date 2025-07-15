@@ -21,14 +21,12 @@ const buttonGridItems = [
 ]
 
 
-
 </script>
 
 <template>
     <Avatar :css="'home'" :src="user.getAvatar"/>
     <h1>{{user.getFirstName}}</h1>
-
-    <LevelBar/>
+    <LevelBar :userLevel="user.getLevel"/>
     <ButtonGrid :button-items="buttonGridItems" />
     <SingleButton :path="route.path" :css="style"/>
 

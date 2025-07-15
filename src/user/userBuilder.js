@@ -21,6 +21,11 @@ export class UserBuilder {
         this.user.setAvatar(avatar);
         return this;
     }
+    setLevel(level) {
+        console.log(level)
+        this.user.setLevel(level);
+        return this;
+    }
     setRegisteredCourses(courses) {
 
         if (Array.isArray(courses)) {

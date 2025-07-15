@@ -1,4 +1,9 @@
 import {reactive} from "vue";
+import userStore from "@/user/userStore.js";
+import UserStore from "@/user/userStore.js";
+
+//User aus dem LocalStorage holen
+const user = userStore.getUser();
 
 class QuestFlow {
     #quests = reactive([]);
@@ -12,12 +17,13 @@ class QuestFlow {
 
 
 
-    //Falls Items im Queueu und nicht leer -> Das 1. löschen
+    //Falls Items im Queueu und nicht leer -> Das 1. löschen und Levelaufstieg
     dequeueQuests() {
 
         if(this.getActiveQuest().allStepsCompleted() && !this.isEmpty()){
             this.getActiveQuest().complete();
             this.#quests.shift();
+            UserStore.updateLevel();
 
         }
 
@@ -77,12 +83,7 @@ class QuestFlow {
             //Wenn alle Unteraufgaben erledigt sind: Quest entfernen
             this.dequeueQuests();
 
-
-
-
         }
-        console.log(this.#quests)
-
 
     }
 
