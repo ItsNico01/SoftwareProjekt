@@ -16,7 +16,7 @@ const user = userStore.getUser();
 //Menüpunkte für das ButtonGrid
 const buttonGridItems = [
     {name: "myHSHL", route: "/login", style:"home"},
-    {name: "Badges", route: "", style:"home"},
+    {name: "Badges", route: "/badges", style:"home"},
     {name: "Einstellungen", route: "", style:"home"},
 ]
 
