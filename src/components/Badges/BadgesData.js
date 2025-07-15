@@ -7,12 +7,17 @@ import {Major} from "@/majors/major.js";
 const user = userStore.getUser();
 
 const major = new Major(user.getMajor);
+console.log(major.getCourseNames.every(course =>
+    user.getRegisteredCourses.includes(course)));
+console.log(user.getRegisteredCourses.includes(major.getCourseNames));
+console.log(user.getRegisteredCourses)
+console.log(major.getCourseNames)
 
 //Name, Bedingung zur Beendigung, Emoji der Abzeichen
 export const badgesData = [
     {name: "Beende das Spiel", finished: questFlow.isEmpty(), icon: mdiCheckOutline},
     {name: "Spiele das Spiel auf 'schwer' durch", finished: questFlow.isEmpty() && user.getDifficulty ==='hard', icon: mdiArmFlex},
-    {name: "Melde dich zu allen verfügbaren Prüfungen an", finished:  user.getRegisteredCourses === major.getCourseNames , icon: mdiBrain}
+    {name: "Melde dich zu allen verfügbaren Prüfungen an", finished: major.getCourseNames.every(course => user.getRegisteredCourses.includes(course)) , icon: mdiBrain}
 ]
 
 

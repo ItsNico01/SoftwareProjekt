@@ -68,11 +68,11 @@ onMounted(() => {
 
     <v-container class="fill-height pa-0">
       <v-row no-gutters class="fill-height">
-        <v-col class=" d-flex align-start h-25" cols="4">
+        <v-col class=" d-flex align-start h-auto" cols="4">
         <Logo/>
         </v-col>
         <v-col class="h-25 " cols="8">
-          <v-card class="pa-16" title="Campus Office Online" text="Das Serviceportal der Hochschule Hamm-Lippstadt">
+          <v-card class="pa-5" title="Campus Office Online" text="Das Serviceportal der Hochschule Hamm-Lippstadt">
           </v-card>
         </v-col>
         <v-col class="d-flex h-75 fill-height" cols="2">
