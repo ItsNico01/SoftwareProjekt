@@ -8,8 +8,9 @@ export const curriculum = {
         new Course("Mathematik 1", 1),
         new Course("Medien und Kommunikation 1", 1),
     ],
-    "cvd:": [
+    "cvd": [
         new Course("Mathematik 1", 1),
+        new Course("Design 1", 1),
 
     ]
 }

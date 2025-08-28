@@ -15,6 +15,7 @@ const user = userStore.getUser();
 //Menu Item Studiengang
 const items = [acronymToFullMajor.get(props.major.getName)]
 
+
 //Menu Items Kurse
 const courseItems = (props.major.getCoursesOf(props.major.getName))
 
