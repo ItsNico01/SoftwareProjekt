@@ -2,8 +2,6 @@ import {reactive} from "vue";
 import userStore from "@/user/userStore.js";
 import UserStore from "@/user/userStore.js";
 
-//User aus dem LocalStorage holen
-const user = userStore.getUser();
 
 class QuestFlow {
     #quests = reactive([]);
