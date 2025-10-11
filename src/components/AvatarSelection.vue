@@ -15,14 +15,26 @@ const images = ref(
 </script>
 
 <template>
-  <div class="openbox">
-    <div class="content" >
-      <!--Avatare durchlaufen -->
+  <v-container>
+    <v-row class="d-flex justify-center align-center">
+      <v-card class="d-flex align-content-center pa-3 border-thin">
+        <v-card-item v-for="avatar in images" :key="avatar.src">
+
+          <img class="pa-0 ma-0" :src="avatar.src" :alt="avatar.alt" @click="$emit('avatarClicked', avatar.src);">
+        </v-card-item>
+      </v-card>
+    </v-row>
+  </v-container>
+
+
+<!--  <div class="openbox pa-3">
+    <div class="content " >
+      &lt;!&ndash;Avatare durchlaufen &ndash;&gt;
       <div v-for="avatar in images" :key="avatar.src">
         <img :src="avatar.src" :alt="avatar.alt" @click="$emit('avatarClicked', avatar.src)">
       </div>
     </div>
-  </div>
+  </div>-->
 
 </template>
 
