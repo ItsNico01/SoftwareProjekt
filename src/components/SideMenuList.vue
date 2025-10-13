@@ -14,13 +14,16 @@ defineExpose({selected});
 
 <template>
 
-  <v-card title="Kurse" class="text-break" >
+  <v-card title="Kurse" class="text-break scroll" >
     <v-list :items="props.listItems" v-model:selected="selected"></v-list>
 
   </v-card>
 
 </template>
 <style scoped>
-
+.scroll {
+  height: calc(85vh - 200px);
+  overflow-y: auto;
+}
 
 </style>

@@ -58,7 +58,7 @@ function buildTimeTableURL() {
 </script>
 
 <template>
-  <v-card title="Stundenplanung" class="fill-height" >
+  <v-card title="Stundenplanung" class="fill-height" variant="flat">
     <v-list :items="listItems" v-model:selected="selected" @click="handleSideQuestEvent">
     </v-list>
 

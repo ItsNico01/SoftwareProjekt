@@ -24,13 +24,13 @@ import {RouterView} from "vue-router";
 
   <v-container>
     <v-row class="mb-0">
-      <v-col cols="12" class="d-flex align-center justify-center mb-0 pb-1 ">
+      <v-col cols="12" class="d-flex align-center justify-center mb-0 pb-1">
         <!-- Desktop -->
         <v-sheet
             border="xl"
-            color="black"
-            height="450"
-            min-width="450"
+            class="custom-border"
+            height="550"
+            min-width="550"
             width="95%">
           <!-- Content -->
           <router-view/>
@@ -59,7 +59,7 @@ import {RouterView} from "vue-router";
       <v-col cols="12" class="d-flex align-center justify-center mt-n16 mb-0 pt-0 pb-0">
         <!-- Horizontaler Ständer-->
         <v-sheet
-            border="black xl"
+            border="xl"
             color="black"
             height="45"
             width="95%">
@@ -95,5 +95,11 @@ import {RouterView} from "vue-router";
 }
 .todo {
   margin-top: -10vw;
+}
+.custom-border {
+  /* Vuetify-Theme-Variable überschreiben */
+  --v-border-color: 0, 0, 0; /* schwarz (RGB) */
+  --v-border-opacity: 1;
+  background-color: white !important;
 }
 </style>

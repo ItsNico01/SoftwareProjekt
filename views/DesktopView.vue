@@ -28,7 +28,7 @@ const buttonGridItems = [
     <LevelBar :userLevel="user.getLevel"/>
     <ButtonGrid :button-items="buttonGridItems" />-->
 
-<v-container class="bg-white">
+<v-container class="bg-white fill-height">
   <v-row class="justify-center" >
     <v-col class="d-flex justify-center" cols="12">
       <v-card variant="flat" class="pt-10 mb-11">

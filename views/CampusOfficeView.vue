@@ -68,11 +68,11 @@ onMounted(() => {
 
 <!--    <v-container class="fill-height pa-0 bg-white">
       <v-row no-gutters >
-        <v-col class=" d-flex align-start h-auto" cols="4">
+        <v-col class=" d-flex align-start h-25" cols="4">
         <Logo/>
         </v-col>
         <v-col class="h-25 " cols="8">
-          <v-card class="pa-5" title="Campus Office Online" text="Das Serviceportal der Hochschule Hamm-Lippstadt">
+          <v-card class="pa-16" title="Campus Office Online" text="Das Serviceportal der Hochschule Hamm-Lippstadt">
           </v-card>
         </v-col>
         <v-col class="d-flex h-75 fill-height" cols="2">
@@ -90,27 +90,6 @@ onMounted(() => {
       </v-row>
     </v-container>-->
 
-<!--  <v-container class="bg-white">
-    <v-row>
-      <v-col cols="2" class="d-flex align-start pa-0">
-        <Logo/>
-      </v-col>
-      <v-col cols="10" class="pa-0">
-          <v-card class="pa-2" title="Campus Office Online" text="Das Serviceportal der Hochschule Hamm-Lippstadt">
-          </v-card>
-      </v-col>
-    </v-row>
-    <v-row class="h-25">
-      <v-col cols="4" class="d-flex h-25 pa-0">
-        <SideMenuList :listItems="listItems"  ref="selected"/>
-      </v-col>
-&lt;!&ndash;      <v-col cols="8" class="pa-0">
-&lt;!&ndash;        <PageTitleCard :title="selected.selected?.[0]"/>
-        <ExamRegistration :major="major" v-if="selected.selected?.[0] === 'Anmeldung zu den Modulprüfungen'" class="w-100 text-center" />&ndash;&gt;
-      </v-col>&ndash;&gt;
-    </v-row>
-  </v-container>-->
-
   <v-container class="bg-white">
     <v-row>
       <v-col cols="2" class="d-flex align-start pa-0">
@@ -121,13 +100,13 @@ onMounted(() => {
         </v-card>
       </v-col>
     </v-row>
-    <v-row class="fill-height">
-      <v-col cols="4" class="pa-0">
+    <v-row class="h-25">
+      <v-col cols="4" class="pa-0 ">
         <SideMenuList :listItems="listItems"  ref="selected"/>
       </v-col>
-      <v-col cols="8" >
+      <v-col cols="8">
         <PageTitleCard :title="selected.selected?.[0]"/>
-        <ExamRegistration :major="major" v-if="selected.selected?.[0] === 'Anmeldung zu den Modulprüfungen'" class="exam text-center" />
+        <ExamRegistration :major="major" v-if="selected.selected?.[0] === 'Anmeldung zu den Modulprüfungen'" class="text-center" />
       </v-col>
     </v-row>
   </v-container>
@@ -135,9 +114,4 @@ onMounted(() => {
 
 <style scoped>
 
-.exam {
-  max-height: 50%;
-  padding: 0;
-  margin: 0;
-}
 </style>
