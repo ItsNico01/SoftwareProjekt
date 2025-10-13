@@ -18,7 +18,13 @@ onMounted(() => {flow.stepCompleted("Gehe auf myHSHL");})
 </script>
 
 <template>
-<ButtonGrid :button-items="buttonGridItems"/>
+  <v-container class="d-flex align-start bg-white fill-height">
+    <v-row>
+      <v-col cols="12" class="d-flex justify-center flex-wrap">
+        <ButtonGrid :button-items="buttonGridItems"/>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <style scoped>

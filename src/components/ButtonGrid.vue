@@ -26,12 +26,21 @@ function handleRoute(index){
 <template>
   <!-- Übergebene Items werden hier als gridItems angezeigt.
        Klickt man auf ein Items, so wird man auf den jeweiligen übergebenen Link weitergeleitet.-->
-  <div class="container" >
+<!--  <div class="container" >
     <div v-for="(item, index) in buttonItems"
          :key="item"
          :class="props.buttonItems[index].style"
          @click="handleRoute(index);">{{props.buttonItems[index].name}}</div>
-  </div>
+  </div>-->
+
+  <!-- Übergebene Items werden hier als gridItems angezeigt.
+         Klickt man auf ein Items, so wird man auf den jeweiligen übergebenen Link weitergeleitet.-->
+  <v-btn v-for="(item, index) in buttonItems"
+
+         :key="item"
+         @click="handleRoute(index);">{{ props.buttonItems[index].name }}
+
+  </v-btn>
 </template>
 
 <style scoped>

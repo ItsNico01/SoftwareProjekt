@@ -23,12 +23,23 @@ const buttonGridItems = [
 </script>
 
 <template>
-    <Avatar :css="'home'" :src="user.getAvatar"/>
+<!--    <Avatar :size="'180'" :src="user.getAvatar"/>
     <h1>{{user.getFirstName}}</h1>
     <LevelBar :userLevel="user.getLevel"/>
-    <ButtonGrid :button-items="buttonGridItems" />
+    <ButtonGrid :button-items="buttonGridItems" />-->
 
-
+<v-container class="bg-white">
+  <v-row class="justify-center" >
+    <v-col class="d-flex justify-center" cols="12">
+      <v-card variant="flat" class="pt-10 mb-11">
+        <Avatar :size="'100'" :src="user.getAvatar"/>
+        <h1>{{user.getFirstName}}</h1>
+        <LevelBar :userLevel="user.getLevel"/>
+        <ButtonGrid :button-items="buttonGridItems" />
+      </v-card>
+    </v-col>
+  </v-row>
+</v-container>
 </template>
 
 <style scoped>

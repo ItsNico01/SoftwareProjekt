@@ -6,7 +6,7 @@ import {QuestState} from "@/quests/QuestState.js";
 </script>
 
 <template>
-  <v-container>
+  <v-container class="d-flex fill-height align-start bg-white">
     <v-row>
       <v-col>
         <v-card>

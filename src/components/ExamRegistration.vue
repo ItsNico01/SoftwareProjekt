@@ -45,8 +45,8 @@ onMounted(() => {flow.stepCompleted("Gehe auf Anmeldung zu den Modulprüfungen")
 </script>
 
 <template>
-  <v-container>
-    <v-row>
+  <v-container >
+    <v-row >
       <v-col>
         <v-select
             :items="items"
@@ -57,12 +57,12 @@ onMounted(() => {flow.stepCompleted("Gehe auf Anmeldung zu den Modulprüfungen")
         ></v-select>
       </v-col>
     </v-row>
-    <v-row>
+    <v-row class="ma-0 pa-0">
       <v-col v-if="selected">
-        <v-card title="Kurse" class="fill-height">
+        <v-card title="Kurse" class="ma-0 pa-0">
           <v-list-item v-for="(item, i) in courseItems" :key="i" >
-              <v-list-item-title v-text="item" ></v-list-item-title>
-              <v-btn @click="flow.stepCompleted('Melde dich zu einer Prüfung aus deinem Studiengang an'); handleRegistration(item)">
+              <v-list-item-title v-text="item" class="ma-0 pa-0"></v-list-item-title>
+              <v-btn class="ma-0 pa-0" @click="flow.stepCompleted('Melde dich zu einer Prüfung aus deinem Studiengang an'); handleRegistration(item)">
                 Anmelden
               </v-btn>
           </v-list-item>
@@ -78,5 +78,8 @@ onMounted(() => {flow.stepCompleted("Gehe auf Anmeldung zu den Modulprüfungen")
 </template>
 
 <style scoped>
-
+.v-messages {
+  padding: 0;
+  margin: 0;
+}
 </style>
