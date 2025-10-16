@@ -59,7 +59,7 @@ onMounted(() => {flow.stepCompleted("Gehe auf Anmeldung zu den Modulprüfungen")
     </v-row>
     <v-row class="ma-0 pa-0">
       <v-col v-if="selected">
-        <v-card title="Kurse" class="ma-0 pa-0">
+        <v-card title="Kurse" class="ma-0 pa-0" >
           <v-list-item v-for="(item, i) in courseItems" :key="i" >
               <v-list-item-title v-text="item" class="ma-0 pa-0"></v-list-item-title>
               <v-btn class="ma-0 pa-0" @click="flow.stepCompleted('Melde dich zu einer Prüfung aus deinem Studiengang an'); handleRegistration(item)">

@@ -23,8 +23,8 @@ flow.enqueueQuests(quest2);
 <template>
   <v-container>
     <v-row >
-      <v-col >
-        <v-card class="bg-red-lighten-2 text-wrap" min-width="200" >
+      <v-col class="d-flex">
+        <v-card class="bg-red-lighten-2 text-wrap mx-auto mr-15 justify-center" min-width="200" max-width="400" >
           <v-card-title v-if="!flow.isEmpty()"
                         class="text-wrap">{{flow.getActiveQuest().getName()}}</v-card-title>
           <v-card-title v-else>Du hast alle Aufgaben gelöst! </v-card-title>

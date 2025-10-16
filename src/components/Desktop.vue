@@ -23,15 +23,18 @@ import {RouterView} from "vue-router";
   </v-container>-->
 
   <v-container>
-    <v-row class="mb-0">
+    <v-row class="mb-0" >
       <v-col cols="12" class="d-flex align-center justify-center mb-0 pb-1">
         <!-- Desktop -->
         <v-sheet
             border="xl"
             class="custom-border"
             height="550"
-            min-width="550"
-            width="95%">
+            max-width="1200"
+            width="100%"
+
+
+            >
           <!-- Content -->
           <router-view/>
         </v-sheet>
@@ -62,7 +65,8 @@ import {RouterView} from "vue-router";
             border="xl"
             color="black"
             height="45"
-            width="95%">
+            width="95%"
+            max-width="1200">
 
         </v-sheet>
 

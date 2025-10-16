@@ -22,7 +22,7 @@ defineExpose({selected});
 </template>
 <style scoped>
 .scroll {
-  height: calc(85vh - 200px);
+  max-height: calc(70vh - 200px);
   overflow-y: auto;
 }
 
