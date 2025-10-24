@@ -1,7 +1,5 @@
 import {reactive} from "vue";
-import userStore from "@/user/userStore.js";
 import UserStore from "@/user/userStore.js";
-
 
 class QuestFlow {
     #quests = reactive([]);
@@ -13,8 +11,6 @@ class QuestFlow {
         this.#quests.push(element);
     }
 
-
-
     //Falls Items im Queueu und nicht leer -> Das 1. löschen und Levelaufstieg
     dequeueQuests() {
 
@@ -24,7 +20,6 @@ class QuestFlow {
             UserStore.updateLevel();
 
         }
-
     }
 
     //Das vorderste Item anzeigen
@@ -33,8 +28,6 @@ class QuestFlow {
             return this.#quests[0]
         }
     }
-
-
 
     isEmpty() {
         return this.#quests.length === 0;
@@ -60,7 +53,6 @@ class QuestFlow {
             //Unteraufgabe vorbereiten.
             activeQuest.stepInProgress();
 
-
     }
 
     //Prüfen, ob der Schritt erledigt wurde.
@@ -70,7 +62,6 @@ class QuestFlow {
 
             //Unteraufgabe der aktuellen Quest
             const stepInProgress = this.getActiveQuest().getStepInProgress();
-
 
             //Schritt erledigt? Setze ihn als erledigt und setze den nächsten auf "in Progress"
             if (stepInProgress?.getName() === stepName) {

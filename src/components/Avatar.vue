@@ -1,7 +1,6 @@
 <script setup>
-import {computed, onMounted, ref} from "vue";
+import {onMounted, ref} from "vue";
 import AvatarSelection from "@/components/AvatarSelection.vue";
-//import {updateAvatar, user} from "@/user/userStore.js";
 import userStore from "@/user/userStore.js";
 import SvgIcon from '@jamescoyle/vue-icon';
 import {mdiPencil} from "@mdi/js";
@@ -19,10 +18,9 @@ const props = defineProps({
   },
 })
 
-
-
 const avatarBoxVisible = ref(false);
 let avatar = ref("")
+const avatarVersion = ref(0);
 
 defineExpose({avatar});
 
@@ -33,18 +31,23 @@ function setUp() {
   console.log(props.src);
 }
 
+//avatarVersion hochzählen, damit das Nachladen des Bilds schneller geht.
+function refreshAvatar() {
+  avatarVersion.value++;
+}
+
 //Avatarbox anzeigen oder verstecken
 function toggleAvatarBox() {
   avatarBoxVisible.value = !avatarBoxVisible.value;
 }
 
 //Im Event ausgewählter Avatar wird als aktueller Avatar gesetzt.
-//Für globalen user und lokalen avatar.
+//Für globalen User und lokalen Avatar.
 function handleAvatarChange(selected) {
-  toggleAvatarBox()
+  toggleAvatarBox();
   avatar.value = selected;
   userStore.updateAvatar(selected);
-
+  refreshAvatar();
 }
 
 onMounted(() => {
@@ -65,15 +68,17 @@ onMounted(() => {
             class="relative overflow-hidden cursor-pointer border-thin"
             @click="toggleAvatarBox"
         >
-          <!-- Das Bild -->
-          <v-img v-if="!user.getAvatar"
+          <!-- Das Bild (WelcomeView)-->
+          <v-img v-if="!user?.getAvatar"
               :src="avatar"
               cover
               class="absolute inset-0 w-full h-full"
               alt="Avatar"
           />
+
+          <!-- Das Bild -->
           <v-img v-else
-                 :src="user.getAvatar"
+                 :src="`${user.getAvatar}?v=${avatarVersion}`"
                  cover
                  class="absolute inset-0 w-full h-full"
                  alt="Avatar"
@@ -98,56 +103,9 @@ onMounted(() => {
       </Transition>
     </v-row>
   </v-container>
-
-
-
 </template>
 
 <style scoped>
-/*.home {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 10vw;
-  height: 10vw;
-  border: 1vw solid black;
-  border-radius: 50%;
-  margin-top: 2vw;
-}
-.welcomeView {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 8vw;
-  height: 8vw;
-  border: 0.1vw solid black;
-  border-radius: 50%;
-  background-color: aqua;
-
-}
-.hide {
-  display: none;
-}
-.welcomeView:hover .hide{
-  display: block;
-  color: white;
-  height: 2vw;
-  text-align: center;
-}
-.welcomeView:hover {
-  background-color: grey;
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}*/
-
 .v-avatar {
   position: relative;
   overflow: hidden;
@@ -171,6 +129,4 @@ onMounted(() => {
   z-index: 10;
   pointer-events: none;
 }
-
-
 </style>

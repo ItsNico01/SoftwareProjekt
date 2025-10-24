@@ -22,7 +22,6 @@ export class UserBuilder {
         return this;
     }
     setLevel(level) {
-        console.log(level)
         this.user.setLevel(level);
         return this;
     }
@@ -35,8 +34,6 @@ export class UserBuilder {
         } else if(!this.user.getRegisteredCourses.includes(courses)) {
             this.user.setRegisteredCourses(courses);
         }
-
-
         return this;
     }
     build(){

@@ -1,7 +1,7 @@
 <script setup>
-//import {user} from "@/user/userStore.js"
-import {computed, ref} from "vue";
+import {ref} from "vue";
 
+//Die möglichen Avatare
 const images = ref(
     [
       {alt: "avatar1", src: new URL(`../assets/anonymous_avatars_1.jpg`, import.meta.url).href},
@@ -10,53 +10,24 @@ const images = ref(
       {alt: "avatar4", src: new URL(`../assets/anonymous_avatars_4.jpg`, import.meta.url).href},
     ]
 )
-
-
 </script>
 
 <template>
   <v-container>
     <v-row class="d-flex justify-center align-center">
+
+      <!--Auswahlbox für die Avatare-->
       <v-card class="d-flex align-content-center pa-3 border-thin">
         <v-card-item v-for="avatar in images" :key="avatar.src">
-
           <img class="pa-0 ma-0" :src="avatar.src" :alt="avatar.alt" @click="$emit('avatarClicked', avatar.src);">
         </v-card-item>
       </v-card>
+
     </v-row>
   </v-container>
-
-
-<!--  <div class="openbox pa-3">
-    <div class="content " >
-      &lt;!&ndash;Avatare durchlaufen &ndash;&gt;
-      <div v-for="avatar in images" :key="avatar.src">
-        <img :src="avatar.src" :alt="avatar.alt" @click="$emit('avatarClicked', avatar.src)">
-      </div>
-    </div>
-  </div>-->
-
 </template>
 
 <style scoped>
-.openbox {
-  width: 20vw;
-  height: 8vw;
-  margin-inline: auto;
-  border: 0.2vw solid black;
-  border-radius: 2%;
-  background-color: white;
-}
-
-.content {
-  width: 2vw;
-  height: 2vw;
-  margin-inline: auto;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-}
-
 img {
   width: 5vw;
   height: 5vw;

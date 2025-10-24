@@ -5,14 +5,11 @@ import {reactive, ref} from "vue";
 export class Quest {
     name =ref();
     state;
-    reward;
     steps = [];
     constructor(name) {
         this.name = name;
         this.mapSteps();
         this.state = QuestState.NOT_STARTED;
-        //Todo: Rewards
-
     }
 
     getName(){
@@ -33,9 +30,6 @@ export class Quest {
             if(this.steps[x].getState() === QuestState.NOT_STARTED){
                 this.steps[x].setState(QuestState.IN_PROGRESS);
                 break;
-            }else{
-
-
             }
         }
     }

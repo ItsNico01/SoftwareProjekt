@@ -1,17 +1,19 @@
 <script setup>
 import ButtonGrid from "@/components/ButtonGrid.vue";
-import {onMounted, onUpdated} from "vue";
+import {onMounted} from "vue";
 import questFlow from "@/quests/QuestFlow.js";
 
 //Hole den Questflow.
 const flow = questFlow.getQuestFlow();
 
+//Die übergebenen Buttonitems mit Namen und Route, auf welche
+//sie nach dem Klicken weiterleiten.
 const buttonGridItems = [
-  {name:"Bibliothekskonto", route: "", style:"myHSHL"},
-  {name:"Campus Office", route: "/campusOfficeLogin", style:"myHSHL"},
-  {name:"Lernplattform", route:"/lernplattform", style:"myHSHL"},
-  {name:"StudyAssist", route:"",style:"myHSHL"},
-  {name:"Postfach", route:"", style:"myHSHL"},
+  {name:"Bibliothekskonto", route: ""},
+  {name:"Campus Office", route: "/campusOfficeLogin"},
+  {name:"Lernplattform", route:"/lernplattform"},
+  {name:"StudyAssist", route:""},
+  {name:"Postfach", route:""},
 ]
 
 onMounted(() => {flow.stepCompleted("Gehe auf myHSHL");})

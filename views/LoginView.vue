@@ -1,10 +1,6 @@
 <script setup>
 import Logo from "@/components/icons/logo.vue";
 import LoginForm from "@/components/LoginForm.vue";
-import {useRoute, useRouter} from "vue-router";
-
-const route = useRoute();
-
 </script>
 
 <template>
@@ -18,7 +14,6 @@ const route = useRoute();
       </v-col>
     </v-row>
   </v-container>
-
 </template>
 
 <style scoped>

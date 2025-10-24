@@ -17,14 +17,11 @@ const route = useRoute();
 //Je nachdem wird man zu einem anderen path weitergeleitet
 let submitDirection = () => {
   if(route.path=== "/login") {
-
     router.push('/myHSHL');
   }else if(route.path === "/campusOfficeLogin") {
     router.push('/campusOffice');
   }
 }
-
-
 </script>
 
 <template>

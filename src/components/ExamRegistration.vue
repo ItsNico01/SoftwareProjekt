@@ -31,8 +31,7 @@ function handleRegistration(item){
   }
   console.log(item);
   console.log(user.getRegisteredCourses)
-  alert("angemeldet");
-
+  alert("Du hast dich erfolgreich angemeldet.");
   flow.print();
 }
 
@@ -48,6 +47,7 @@ onMounted(() => {flow.stepCompleted("Gehe auf Anmeldung zu den Modulprüfungen")
   <v-container >
     <v-row >
       <v-col>
+        <!--Studiengangsauswahl-->
         <v-select
             :items="items"
             density="compact"
@@ -59,6 +59,7 @@ onMounted(() => {flow.stepCompleted("Gehe auf Anmeldung zu den Modulprüfungen")
     </v-row>
     <v-row class="ma-0 pa-0">
       <v-col v-if="selected">
+        <!-- Die Kursliste-->
         <v-card title="Kurse" class="ma-0 pa-0" >
           <v-list-item v-for="(item, i) in courseItems" :key="i" >
               <v-list-item-title v-text="item" class="ma-0 pa-0"></v-list-item-title>
@@ -70,16 +71,7 @@ onMounted(() => {flow.stepCompleted("Gehe auf Anmeldung zu den Modulprüfungen")
       </v-col>
     </v-row>
   </v-container>
-
-
-
-
-
 </template>
 
 <style scoped>
-.v-messages {
-  padding: 0;
-  margin: 0;
-}
 </style>

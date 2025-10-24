@@ -12,8 +12,6 @@ export class User {
         this.#difficulty = difficulty;
         this.#avatar = avatar;
         this.#level = 1;
-
-
     }
 
     setFirstName(name) {
@@ -67,10 +65,8 @@ export class User {
     get getLevel() {
         return this.#level;
     }
-    
 
-
-    //zum Speichern im localStorage
+    //zum Speichern im localStorage (Stringify)
     toJSON() {
         return {
             firstName: this.#firstName,

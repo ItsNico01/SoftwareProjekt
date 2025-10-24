@@ -1,10 +1,8 @@
 <script setup>
 import SvgIcon from '@jamescoyle/vue-icon';
 import {badgesData} from "@/components/Badges/BadgesData.js";
-import {QuestState} from "@/quests/QuestState.js";
 
 </script>
-
 <template>
   <v-container class="d-flex fill-height align-start bg-white">
     <v-row>

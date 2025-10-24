@@ -8,19 +8,9 @@ import {ref} from "vue";
 const refRegisterForm = ref("");
 
 const refAvatar = ref("");
-
-
-
 </script>
 
 <template>
-<!--  <div class="container">
-    &lt;!&ndash; Name wird an den Header weitergegeben&ndash;&gt;
-    <WelcomeHeader :name="refRegisterForm.RegisterFormFirstName"/>
-    <Avatar :css="'welcomeView'" ref="refAvatar"/>
-    <RegisterForm :avatarSrc="refAvatar.avatar"  ref="refRegisterForm" />
-  </div>-->
-
   <v-container >
     <v-row class="d-flex justify-center align-center pa-3 bg-grey-lighten-2">
       <v-card >
@@ -37,21 +27,9 @@ const refAvatar = ref("");
         <RegisterForm :avatarSrc="refAvatar.avatar"  ref="refRegisterForm" class="bg-grey-lighten-2"/>
       </v-col>
     </v-row>
-
-
   </v-container>
 
 </template>
 
 <style scoped>
-.container {
-  width: 50vw;
-  height: 86vh;
-  border-radius: 2vw;
-  margin-inline: auto;
-  margin-top: 1vh;
-  background-color: #cdcdcd;
-  padding: 3vw;
-}
-
 </style>

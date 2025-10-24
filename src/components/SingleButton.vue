@@ -1,4 +1,5 @@
-<!-- Componente für alle alleinstehenden Buttons-->
+<!-- Component für alle alleinstehenden Buttons.
+     Wird aktuell nicht verwendet.-->
 <script setup>
   import {useRouter} from "vue-router";
 
@@ -21,7 +22,8 @@ function changePage(){
 </script>
 
 <template>
-  <!-- class: Aussehen des Buttons wird geändert, je nach dem welcher Prop (css) von Elterncomponente übergeben wird-->
+  <!-- class: Aussehen des Buttons wird geändert,
+       je nach dem welcher Prop (css) von Elterncomponent übergeben wird-->
   <div @click="changePage" :class="props.css">{{path}}</div>
 
 </template>

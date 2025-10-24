@@ -14,8 +14,6 @@ class UserStore {
             .setAvatar(avatar)
             .build();
 
-
-
         this.saveUser();
         console.log(this.user);
     }

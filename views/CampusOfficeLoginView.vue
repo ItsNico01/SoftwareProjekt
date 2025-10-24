@@ -1,5 +1,4 @@
 <script setup>
-
 import LoginForm from "@/components/LoginForm.vue";
 import Logo from "@/components/icons/logo.vue";
 </script>

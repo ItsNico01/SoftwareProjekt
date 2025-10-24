@@ -5,13 +5,7 @@ import {Major} from "@/majors/major.js";
 
 //User aus dem localStorage holen
 const user = userStore.getUser();
-
 const major = new Major(user.getMajor);
-console.log(major.getCourseNames.every(course =>
-    user.getRegisteredCourses.includes(course)));
-console.log(user.getRegisteredCourses.includes(major.getCourseNames));
-console.log(user.getRegisteredCourses)
-console.log(major.getCourseNames)
 
 //Name, Bedingung zur Beendigung, Emoji der Abzeichen
 export const badgesData = [
