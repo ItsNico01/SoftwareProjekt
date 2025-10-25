@@ -1,6 +1,6 @@
 <script setup>
 
-import router from "../../router/router.js";
+import router from "@/router/router.js";
 import userStore from "@/user/userStore.js";
 import {useRoute} from "vue-router";
 import questFlow from "@/quests/QuestFlow.js";

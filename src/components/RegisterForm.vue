@@ -1,7 +1,7 @@
 <script setup>
 import {ref} from "vue";
 import userStore  from "@/user/userStore.js";
-import router from "../../router/router.js";
+import router from "@/router/router.js";
 
 const props = defineProps( {
   avatarSrc: String
